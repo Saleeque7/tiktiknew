@@ -1,0 +1,217 @@
+<%- include('../layouts/adminHeader.ejs') %>
+    <main class="main-wrap">
+        <section class="content-main">
+            <div class="row">
+                <div class="col-9">
+                    <div class="content-header">
+                        <form action="/admin/addCoupon" method="post" id="couponForm">
+                            <h2 class="content-title">Add Coupon</h2>       `
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4>Basic</h4>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="mb-4">
+                                <label for="couponCode" class="form-label">Coupon Code</label>
+                                <input type="text" name="couponCode" class="form-control" id="couponCode">
+                                <p id="couponCodeError" class="error-message" style="color: red;"></p>
+                            </div>
+                            <div class="mb-4">
+                                <label for="couponDescription" class="form-label">Description</label>
+                                <textarea name="description" class="form-control" rows="4" id="description"></textarea>
+                                <p id="descriptionError" class="error-message" style="color: red;"></p>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="mb-4">
+                                        <label for="discount" class="form-label">Discount</label>
+                                        <div class="row gx-2">
+                                            <input placeholder="₹" max="100" min="1" name="discount" type="number"
+                                                class="form-control" id="discount">
+                                            <p id="discountError" class="error-message" style="color: red;"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mb-4">
+                                        <label for="maxDiscount" class="form-label">Max Discount</label>
+                                        <input placeholder="₹" name="maxDiscount" type="number" class="form-control"
+                                            id="maxDiscount">
+                                        <p id="maxDiscountError" class="error-message" style="color: red;"></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mb-4">
+                                        <label for="minAmount" class="form-label">Min Amount</label>
+                                        <input placeholder="₹" name="minAmount" type="number" class="form-control"
+                                            id="minAmount">
+                                        <p id="minAmountError" class="error-message" style="color: red;"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- card end// -->
+                </div>
+                <div class="col-lg-3">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4>Expiration</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <label for="expirationDate" class="form-label">Expiration Date</label>
+                                <input type="date" name="expirationDate" class="form-control" id="expirationDate" required>
+                                <p id="expirationDateError" class="error-message" style="color: red;"></p>
+                            </div>
+                        </div>
+                    </div> <!-- card end// -->
+                    <div>
+                        <button form="couponForm" class="btn btn-md rounded font-sm hover-up"
+                            type="submit">Publish</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+            </div>
+            </div>
+        </section> <!-- content-main end// -->
+
+    <footer class="main-footer font-xs">
+        <div class="row pb-30 pt-15">
+            <div class="col-sm-6">
+                <script>
+                document.write(new Date().getFullYear())
+                </script> ©, Evara - HTML Ecommerce Template .
+            </div>
+            <div class="col-sm-6">
+                <div class="text-sm-end">
+                    All rights reserved
+                </div>
+            </div>
+        </div>
+    </footer>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#couponForm").submit(function (event) { // Add "#" in front of "couponForm"
+                event.preventDefault();
+                let formData = $(this).serialize();
+
+                // Get form input values
+                let couponCode = $("#couponCode").val().trim();
+                let description = $("#description").val().trim();
+                let discount = $("#discount").val().trim();
+                let maxDiscount = $("#maxDiscount").val().trim();
+                let minAmount = $("#minAmount").val().trim();
+                let expirationDate = new Date($("#expirationDate").val().trim());;
+
+                // Validation
+                var isValid = true;
+
+                if (couponCode === "") {
+                    $("#couponCodeError").text("Please enter coupon code.");
+                    isValid = false;
+                } else if (couponCode.length > 50) {
+                    $("#couponCodeError").text("Coupon Code must be 30 characters or less.");
+                    isValid = false;
+                }else if (/[@#$%^&*()_+={}\[\]:;"'<>,.?~`]/.test(couponCode)){
+                    $("#couponCodeError").text("Coupon Code not accept symbols");
+                }
+                else {
+                    $("#couponCodeError").text("");
+                }
+
+                if (description === "") {
+                    $("#descriptionError").text("please enter description.");
+                    isValid = false;
+                } else if (description.length > 200) {
+                    $("#descriptionError").text("Description must be 100 characters or less.");
+                    isValid = false;
+                }
+                else {
+                    $("#descriptionError").text("");
+                }
+
+                if (discount === "") {
+                    $("#discountError").text("please enter discount.");
+                    isValid = false;
+                } else if (isNaN(discount) || discount <= 0 || discount > 100) {
+                    $("#discountError").text("Discount must be a valid percentage between 1% and 100%.");
+                    isValid = false;
+                }
+
+                else {
+                    $("#discountError").text("");
+                }
+
+                if (maxDiscount === "") {
+                    $("#maxDiscountError").text("Please enter maximum amount.");
+                    isValid = false;
+                } else if (isNaN(maxDiscount) || maxDiscount <= 0) {
+                    $("#maxDiscountError").text("Maximum Discount must be greater than Zero.");
+                    isValid = false;
+                } else {
+                    $("#maxDiscountError").text("");
+                }
+
+                if (minAmount === "") {
+                    $("#minAmountError").text("Please enter minimum amount.");
+                    isValid = false;
+                } else if (isNaN(minAmount) || minAmount <= 0) {
+                    $("#minAmountError").text("Minimum Amount must be greater than Zero.");
+                    isValid = false;
+                } else {
+                    $("#minAmountError").text("");
+                }
+
+                const currentDate = new Date();
+                if (expirationDate === "") {
+                    $("#expirationDateError").text("Please enter expiration date.");
+                    isValid = false;
+                } else if (expirationDate <= currentDate) {
+                    $("#expirationDateError").text("Expiration Date must be after the current date.");
+                    isValid = false;
+                } else {
+                    $("#expirationDateError").text("");
+                }
+
+                // If all fields are valid, submit the form
+                if (isValid) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/admin/addCoupon",
+                        data: formData,
+                        success: function (response) {
+
+                            window.location.href = '/admin/listcoupons'
+                        },
+                        error: function (error) {
+                            console.error("Error submitting the form", error);
+                            window.location.href = '/admin/404'
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+
+
+
+<script src="/public/adminAssets/js/vendors/jquery-3.6.0.min.js"></script>
+<script src="/public/adminAssets/js/vendors/bootstrap.bundle.min.js"></script>
+<script src="/public/adminAssets/js/vendors/select2.min.js"></script>
+<script src="/public/adminAssets/js/vendors/perfect-scrollbar.js"></script>
+<script src="/public/adminAssets/js/vendors/jquery.fullscreen.min.js"></script>
+<!-- Main Script -->
+<script src="/public/adminAssets/js/main.js" type="text/javascript"></script>
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-products-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:12 GMT -->
+</html>

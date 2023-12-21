@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TIKTIK</title>
+    <link rel="stylesheet" href="/public/loginCss/bootstrap.css" />
+    <link rel="stylesheet" href="/public/loginCss/main.css" />
+  </head>
+  <body>
+    <% if(typeof message !== 'undefined'){ %>
+      <div class="alert alert-success text-center py-2 mb-2">   
+        <h5><%= message %></h5>
+      </div>
+      <% } %>
+      
+    <!-- Start Banner Area -->
+    <section>
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-end">
+          <!-- <h1>LOGIN </h1>  -->
+          <a href="/" class="btn btn-outline-dark mr-5 "> Home</a>
+        </div>  
+      </div>
+      
+    </section>
+    <!-- End Banner Area -->
+
+    <!--================Login Box Area =================-->
+    <section class="login_box_area section_gap ">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="login_box_img">
+              <img class="img-fluid" src="/public/Images/sal.webp" alt="" />
+              <div class="hover">
+                <h4>New to our website?</h4>
+                <p>YOU CAN BUY HAPPINESS , REGISTER WITH REFERRALCODE EARN <span class="text-success">*₹500</span>  AS BONUS</p>
+                <a class="primary-btn" href="/register">Create an Account</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="login_form_inner">
+              <h3>Log in to enter</h3>
+              <form
+                class="row login_form"
+                action="/login"
+                method="post"
+                
+              >
+                <div class="col-md-12 form-group">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Username"
+                    onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Username'"
+                    required
+                  />
+                </div>
+                <div class="col-md-12 form-group">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Password'"
+                    required
+                  />
+                </div>
+                
+                <div class="col-md-12 form-group">
+                  <div class="creat_account">
+                    <input type="checkbox" onclick="passwordFind()">
+                    <label for="f-option2">show password</label>
+                  </div>
+                  <!-- <div class="creat_account">
+               
+                    <input type="checkbox" id="f-option2" name="selector" />
+                    <label for="f-option2">Keep me logged in</label>
+                  </div> -->
+                 
+                  <!-- <div id="messageDiv" style="display: none;">
+                   <h6><p id="messageText"></p></h6> 
+                  </div> -->
+                  
+                </div>
+                <div class="col-md-12 form-group">
+                  <button type="submit" value="submit" class="primary-btn">
+                    Log In
+                  </button>
+                  <a href="/forget">Forgot Password?</a>
+                </div>               
+              </form>   
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================End Login Box Area =================-->
+  </body>
+</html>
+<script>
+  // Check if the user has previously selected "Keep me logged in"
+  const keepLoggedInCheckbox = document.getElementById("f-option2");
+  const storedValue = localStorage.getItem("keepLoggedIn");
+  const messageDiv = document.getElementById("messageDiv");
+  const messageText = document.getElementById("messageText");
+
+  if (storedValue === "true") {
+    keepLoggedInCheckbox.checked = true;
+  }
+
+  // Function to show a success message
+  function showSuccessMessage(message) {
+    messageText.textContent = message;
+    messageDiv.style.display = "block";
+  }
+
+  // Add an event listener to save the checkbox state and show a success message
+  keepLoggedInCheckbox.addEventListener("change", function() {
+    localStorage.setItem("keepLoggedIn", this.checked);
+    // const message = this.checked
+      // ? "You will be kept logged in."
+      // : "You will not be kept logged in.";
+    showSuccessMessage(`Checkbox state changed to ${this.checked ? "checked" : "unchecked"}.`);
+  });
+</script>
+<script>
+  function passwordFind() {
+  var x = document.getElementById("password")
+  console.log(x,"sdsdd");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+

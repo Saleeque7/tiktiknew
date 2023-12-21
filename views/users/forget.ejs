@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIKTIK</title>
+  <link rel="stylesheet" href="/public/loginCss/bootstrap.css" />
+  <link rel="stylesheet" href="/public/loginCss/main.css" />
+
+</head>
+<body>
+
+
+<section class="section-with-background-image">
+  <%
+if(typeof message !=='undefined'){
+  %><div class="alert alert-success text-center py-2 mb-2">
+  <h5><%= message %></h5>
+</div>
+  <%
+}
+%>
+<div class="container1 ">
+  <div class="header1"  style="margin-top:-5rem">
+    <h1>Forget Password</h1>
+  </div>
+  <form action="/forget" method="post">
+    <div class="form-group">
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="Email"
+        required
+      />
+    </div>
+    <div class="text-center">
+      <input type="submit" class="primary-btn1" value="Send Reset Link">
+    </div>
+  </form>
+</div>
+</section>
+</body>
+</html>

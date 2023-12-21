@@ -1,0 +1,240 @@
+<%- include('../layouts/adminHeader.ejs') %>
+    <!-- Include SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Include SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+    <main class="main-wrap">
+        <header class="main-header navbar">
+            <div class="col-search">
+                <form class="searchform">
+                    <!-- <div class="input-group">
+                        <input list="search_terms" type="text" class="form-control" placeholder="Search term">
+                        <button class="btn btn-light bg" type="button"> <i class="material-icons md-search"></i></button>
+                    </div> -->
+                    <datalist id="search_terms">
+                        <option value="Products">
+                       
+                    </datalist>
+                </form>
+            </div>
+            <div class="col-nav">
+                <button class="btn btn-icon btn-mobile me-auto" data-trigger="#offcanvas_aside"> <i class="material-icons md-apps"></i> </button>
+                <ul class="nav">
+                 
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon darkmode" href="#"> <i class="material-icons md-nights_stay"></i> </a>
+                    </li>
+                   
+                    <li class="dropdown nav-item">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="/public/adminAssets/imgs/people/avatar5.jpg" alt="User"></a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
+                           
+                            <a class="dropdown-item text-danger" href="/logout"><i class="material-icons md-exit_to_app"></i>Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section class="content-main">
+            <div class="content-header">
+                <div>
+                    <h2 class="content-title card-title">Categories </h2>
+                    <p>Add, edit or delete a category</p>
+                </div>
+                <!-- <div>
+                    <input type="text" placeholder="Search Categories" class="form-control bg-white">
+                </div> -->
+            </div>
+            <div class="card ">
+                <div class="card-body ">
+                    <div class="row ">
+                        <form   style="display: flex; " id="categoryForm">
+                            <!-- action="/admin/category" -->
+                            <div class="col-md-5">
+                                <div class="mb-4">
+                                    <label for="categoryname" class="form-label">Name</label>
+                                    <input type="text" placeholder="Type here" class="form-control" name="categoryname" id="categoryname" required>
+                                </div>
+                                <span id="error-message" class="text-danger"></span>
+                                <div class="mb-4">
+                                    <label for="categoryOffer" class="form-label">Offer(%)</label>
+                                    <input type="text" placeholder="%" class="form-control" name="Offer_price" id="categoryOffer" required>
+                                    <span id="price-error-message" class="text-danger"></span>
+                                </div>
+                            
+                                <div class="d-grid" class="col-md-">
+                                    <button type="button" class="btn btn-primary" onclick="addCategory()">Create category</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="col-md-9 " style="padding-top: 1.5rem;">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th width="20%">S/N</th>
+                                            <th width="20%">Name</th>
+                                            <th width="20%">Offer(%)</th>
+                                            <th width="20%">categoryList</th>
+                                            <th width="20%">action</th>
+                                         
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% if (categories.length > 0) { %>
+                                            <% let serialNumber = 1; %>
+                                        <% categories.forEach(category => { %>
+                                
+                                            <tr>
+                                                <td>
+                                                    <%= serialNumber++ %>
+                                                </td>
+                                                <td>
+                                                    <%= category.categoryname %>
+                                                </td>
+                                                <td>
+                                                    <%= category.offer %>%
+                                                </td>
+                                                <td>
+                                                    <% if (!category.isListed) { %>
+                                                        <a class="btn text-danger text-center">UnListed</a>
+                                                    <% } else { %>
+                                                        <a class="btn text-primary text-center">Listed</a>
+                                                    <% } %>
+                                                </td>
+                                                <td>
+                                                  
+                                                       
+                                                            <a href="/admin/edit_category?id=<%= category._id %>" class="btn btn-info p-1">Edit</a>
+            
+                                                            <a  class="btn btn-danger p-1"  href="/admin/categories/delete-category?id=<%= category._id %>">Delete</a>
+                                                            <% if (!category.isListed) { %>
+                                                                <a class="btn btn-success p-1" href="/admin/List-category?id=<%= category._id %>">List</a>
+                                                            <% } else { %>
+                                                                <a class="btn btn-warning p-1" href="/admin/unList-category?id=<%= category._id %>">Unlist</a>
+                                                            <% } %>
+                                                        <!-- <a class="dropdown-item text-primary" href="#">Edit info</a> -->
+                                                      
+                                                </td>
+                                            </tr>
+                                            <% }); %>  
+                                            <% } else { %>
+                                                <tr>
+                                                    <td colspan="4">No categories found</td>
+                                                </tr>
+                                            <% } %> 
+                                           
+                                    </tbody>
+                                </table>
+                                </div>
+                                </div>
+                        </div> <!-- .col// -->
+                        
+                     
+                    </div> <!-- .row // -->
+                </div> <!-- card body .// -->
+            </div> <!-- card .// -->
+        </section> <!-- content-main end// -->
+        <footer class="main-footer font-xs">
+            <div class="row pb-30 pt-15">
+            </div>
+        </footer>
+       
+        
+    </main>
+    <script>
+      function addCategory() {
+    const nameInput = document.getElementById('categoryname');
+    const offerPriceInput = document.querySelector('input[name="Offer_price"]');
+
+    offerPriceInput.addEventListener('input', validateOfferPrice);
+
+    // Validate the name field
+    const isAlphabetic = /^[a-zA-Z\s]+$/g.test(nameInput.value);
+
+    if (  !isAlphabetic || nameInput.value.length > 20) {
+        nameInput.setCustomValidity("Invalid category name. Please check the requirements.");
+        document.getElementById('error-message').textContent = "Invalid category name. Please check the requirements.";
+        return;
+    }
+    else if (nameInput.value.trim() === '') {     
+        document.getElementById('error-message').textContent = "Invalid category name. Please check the requirements.";
+        return ;
+      } else {
+        nameInput.setCustomValidity(""); // No validation error
+        document.getElementById('error-message').textContent = ""; // Clear the error message
+    }
+
+    function validateOfferPrice() {
+        const offerPrice = parseFloat(offerPriceInput.value);
+
+        if (isNaN(offerPrice)) {
+            offerPriceInput.setCustomValidity("Offer price must be a number.");
+            document.getElementById('price-error-message').textContent = "Offer price must be a valid number.";
+        } else if (offerPrice <= 0) {
+            offerPriceInput.setCustomValidity("Offer % must be greater than 0.");
+            document.getElementById('price-error-message').textContent = "Offer price must be greater than 0.";
+        } else if (offerPrice > 100) {
+            offerPriceInput.setCustomValidity("Offer % must be less than 100.");
+            document.getElementById('price-error-message').textContent = "Offer % must be less than 100.";
+        } else {
+            offerPriceInput.setCustomValidity("");
+            document.getElementById('price-error-message').textContent = "";
+        }
+    }
+
+    // Create FormData object
+    const requestData = {
+            categoryname: nameInput.value,
+            Offer_price: offerPriceInput.value
+        };
+console.log(requestData,"requestData");
+        fetch('/admin/category', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.success){
+              Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'category created',
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
+            } else{
+                Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+    </script>
+    <script src="/public/adminAssets/js/vendors/jquery-3.6.0.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/select2.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/perfect-scrollbar.js"></script>
+    <script src="/public/adminAssets/js/vendors/jquery.fullscreen.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/chart.js"></script>
+       <!-- Main Script -->
+       <script src="/public/adminAssets/js/main.js" type="text/javascript"></script>
+       <script src="/public/adminAssets/js/custom-chart.js" type="text/javascript"></script>
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-categories.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:21 GMT -->
+</html>

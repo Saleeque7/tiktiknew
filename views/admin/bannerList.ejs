@@ -1,0 +1,159 @@
+<%- include('../layouts/adminHeader.ejs') %>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+
+
+<main class="main-wrap">
+<header class="main-header navbar">
+    <div class="col-search">
+        <form class="searchform">
+            <!-- <div class="input-group">
+                <input list="search_terms" type="text" class="form-control" placeholder="Search term">
+                <button class="btn btn-light bg" type="button"> <i class="material-icons md-search"></i></button>
+            </div> -->
+            <datalist id="search_terms">
+                <option value="Products">
+               
+            </datalist>
+        </form>
+    </div>
+    <div class="col-nav">
+        <button class="btn btn-icon btn-mobile me-auto" data-trigger="#offcanvas_aside"> <i class="material-icons md-apps"></i> </button>
+        <ul class="nav">
+            <li class="nav-item">
+                <!-- <a class="nav-link btn-icon" href="#">
+                    <i class="material-icons md-notifications animation-shake"></i>
+                    <span class="badge rounded-pill">3</span> -->
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn-icon darkmode" href="#"> <i class="material-icons md-nights_stay"></i> </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="requestfullscreen nav-link btn-icon"><i class="material-icons md-cast"></i></a>
+            </li>
+           
+            <li class="dropdown nav-item">
+                <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="/public/adminAssets/imgs/people/avatar5.jpg" alt="User"></a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="/logout"><i class="material-icons md-exit_to_app"></i>Logout</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>
+    <section class="content-main">
+        <div class="content-header">
+           
+            <div>
+                <!-- <input type="text" placeholder="Search Categories" class="form-control bg-white"> -->
+                <!-- <form action="/admin/searchCat" method="post">
+                    <div class="cupon_text d-flex">
+                        <input type="text" class="ms-auto " style="width: 20rem;" name="search" placeholder="search"
+                            id="coupon">
+                        <button class="btn btn-brand " type="submit">search</button>
+                    </div>
+                </form> -->
+            </div>
+        </div>
+        <h1 class="d-flex justify-content-center">List of Banners</h1>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <!-- <div class="col-md-3">
+                        
+                    </div> -->
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Image</th>
+                                        <!-- <th>Title One</th> -->
+                                        <th>Title One</th>
+                                        <th>Title Two</th>
+                                        <!-- <th>Title Four</th> -->
+                                      
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (let i = 0; i < data.length; i++) { %>
+                                        <tr>
+                                            <td>
+                                                <%= i + 1 %>
+                                            </td>
+                                            <td>
+                                                <img src="/public/userImages/<%= data[i].bannerImage %>" width="80px" alt="img">
+                                            </td>
+                                            <!-- <td>
+                                                <%= data[i].titleOne %>
+                                            </td> -->
+                                            <td>
+                                                <%= data[i].titleOne %>
+                                                <%= data[i].titleTwo %>
+                                            </td>
+                                            <td>
+                                                <%= data[i].titleThree %>
+                                            </td>
+                                            <!-- <td>
+                                                <%= data[i].titleFour %>
+                                            </td> -->
+                                            
+                                            <td>
+                                                <a href="/admin/edit_banner?id=<%= data[i]._id %>" class="btn btn-info p-1">Edit</a>
+
+                                                <button class="btn btn-info p-1" onclick="confirmDelete('<%= data[i]._id %>')">Delete</button>
+                                            </td>
+                                        </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                    </div> <!-- .col// -->
+                </div> <!-- .row // -->
+            </div> <!-- card body .// -->
+        </div> <!-- card .// -->
+    </section> <!-- content-main end// -->
+
+    
+<!-- Include SweetAlert JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+    function confirmDelete(bannerId) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You will not be able to recover this banner!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // If the user clicks "Yes", navigate to the delete URL
+                window.location.href = `/admin/delete-banner/${bannerId}`;
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire('Cancelled', 'Your banner is safe :)', 'info');
+            }
+        });
+    }
+</script>
+
+    </main>
+
+<script src="/public/adminAssets/js/vendors/jquery-3.6.0.min.js"></script>
+<script src="/public/adminAssets/js/vendors/bootstrap.bundle.min.js"></script>
+<script src="/public/adminAssets/js/vendors/select2.min.js"></script>
+<script src="/public/adminAssets/js/vendors/perfect-scrollbar.js"></script>
+<script src="/public/adminAssets/js/vendors/jquery.fullscreen.min.js"></script>
+<script src="/public/adminAssets/js/vendors/chart.js"></script>
+   <!-- Main Script -->
+   <script src="/public/adminAssets/js/main.js" type="text/javascript"></script>
+   <script src="/public/adminAssets/js/custom-chart.js" type="text/javascript"></script>
+</body>
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-categories.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:21 GMT -->
+</html>

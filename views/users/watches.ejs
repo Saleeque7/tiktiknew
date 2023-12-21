@@ -1,0 +1,916 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>TIKTIK</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="/public/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="/public/css/icomoon.css">
+    <!-- Ion Icon Fonts-->
+    <link rel="stylesheet" href="/public/css/ionicons.min.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="/public/css/magnific-popup.css">
+
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="/public/css/flexslider.css">
+
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="/public/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/public/css/owl.theme.default.min.css">
+
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="/public/css/bootstrap-datepicker.css">
+    <!-- Flaticons  -->
+    <link rel="stylesheet" href="/public/fonts/flaticon/font/flaticon.css">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/loginCss/main.css" />
+
+
+    <link href="/public/sideBar/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- Font awesome 5 -->
+    <link href="/public/sideBar/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
+    <!-- custom style -->
+    <link href="/public/sideBar/css/ui.css" rel="stylesheet" type="text/css" />
+    <link href="/public/sideBar/css/responsive.css" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+    <link rel="stylesheet" href="/public/pagination.css">
+
+
+    <!-- Include SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Include SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+
+
+<body>
+
+    <div id="page">
+        <nav class="colorlib-nav" role="navigation">
+            <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-7 col-md-9">
+                            <div id="colorlib-logo"><a href="/home">TIKTIK</a></div>
+                        </div>
+                        <div class="col-sm-5 col-md-3">
+
+                            <div class="form-group" style="display: flex;">
+                                <input id="searchInput" type="search" class="form-control search" placeholder="Search">
+                                <button id="searchButton" class="btn btn-primary submit-search text-center"
+                                    type="button"><i class="icon-search"></i></button>
+                            </div>
+
+                            <!-- <form >
+                                <div class="cupon_text d-flex">
+                                    <input type="text" class="ms-auto " style="width: 20rem;" name="search" placeholder="search" id="coupon">
+                                    <button class="btn btn-brand " type="submit">search</button>
+                                </div>
+                            </form> -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-left menu-1">
+                            <ul>
+                                <li class="id"><a href="/home">Home</a></li>
+                                <li class="has-dropdown active">
+                                    <a href="/watches">Watches</a>
+                                    <!-- <ul class="dropdown">
+                                        <li><a href="checkout.html">Mens Watches</a></li>
+                                        <li><a href="cart.html">Womens Watches</a></li>
+
+                                    </ul> -->
+                                </li>
+
+
+                                <!-- <li><a href="/band">Bands</a></li> -->
+
+                                <li><a href="contact.html">Contact</a></li>
+
+
+                                <li><a href="About">About</a></li>
+
+                                <li class="cart"><a href="/wishList"><i class="iconwishlist"></i><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
+                                            height="20">
+                                            <path
+                                                d="m12 20.703.343.667a.748.748 0 0 1-.686 0l-.003-.002-.007-.003-.025-.013a31.138 31.138 0 0 1-5.233-3.576C3.8 15.573 1 12.332 1 8.514v-.001C1 5.053 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262a31.148 31.148 0 0 1-5.233 3.576l-.025.013-.007.003-.002.001ZM6.736 4C4.657 4 2.5 5.88 2.5 8.514c0 3.107 2.324 5.96 4.861 8.12a29.655 29.655 0 0 0 4.566 3.175l.073.041.073-.04c.271-.153.661-.38 1.13-.674.94-.588 2.19-1.441 3.436-2.502 2.537-2.16 4.861-5.013 4.861-8.12C21.5 5.88 19.343 4 17.264 4c-2.106 0-3.801 1.389-4.553 3.643a.751.751 0 0 1-1.422 0C10.537 5.389 8.841 4 6.736 4Z">
+                                            </path>
+                                        </svg></a></li>
+
+                                <li class="wishlist"><a href="/cart"><i class="icon-shopping-cart"></i></a></li>
+
+                                <li class="user dropdown">
+                                    <a href="#" class="dropdown" data-toggle="dropdown" role="button"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                                        </svg>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+                                        <% if (user) { %>
+                                            <li><a href="/logout">Log out</a></li>
+                                            <li><a href="/userprofile">Profile</a></li>
+                                            <% } else { %>
+                                                <li><a href="/login">Log in</a></li>
+                                                <% } %>
+                                                    <!-- Display "Log out" if user is logged in -->
+                                                    <!-- <li><a href="/login">Log in</a></li> Display "Log in" if user is not logged in -->
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sale bg-dark">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-sm-8 offset-sm-2 text-center">
+                            <div class="row">
+                                <div class="owl-carousel2">
+                                    <div class="item">
+                                        <div class="col">
+                                            <h3><a href="#">15% off (Almost) Everything! Use Code:summer901!</a></h3>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="col">
+                                            <h3><a href="#">Our biggest sale yet 10% off all Watches</a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="colorlib-product">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
+                        <h2>View All Products</h2>
+                    </div>
+                </div>
+                <!-- //product -->
+
+                <section class="colorlib-content  ">
+                    <div class="container">
+                        <div class="row">
+                            <aside class="col-md-3">
+                                <div class="card">
+                                    <article class="colorlib-group">
+                                        <header class="card-header">
+                                            <a href="#" data-toggle="collapse" data-target="#collapse_1"
+                                                aria-expanded="true" class="">
+                                                <i class="icon-control fa fa-chevron-down"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-chevron-down"
+                                                        viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd"
+                                                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                                    </svg></i>
+                                                <h6 class="title">Categories</h6>
+                                            </a>
+                                        </header>
+                                        <div class="colorlib-content collapse show" id="collapse_1">
+                                            <div class="card-body">
+                                                <% categories.forEach(category=> { %>
+                                                    <ul class="list-menu">
+
+
+                                                        <ul class="list-menu">
+                                                            <% if (category.isListed) { %>
+                                                                <li>
+                                                                    <input type="checkbox" class="category-control-input" data-category="<%= category._id %>">
+                                                                    <span class="text-black" style="padding-left: .5rem;">
+                                                                        <%= category.categoryname %>
+                                                                    </span>
+                                                                </li>
+                                                            <% } %>
+                                                        </ul>
+
+                                                        <!-- <li><a href="#">women's collection  </a></li> -->
+                                                    </ul>
+                                                    <% }); %>
+
+                                            </div> <!-- card-body.// -->
+                                        </div>
+                                    </article> <!-- filter-group  .// -->
+                                    <article class="colorlib-group">
+                                        <header class="card-header">
+                                            <a href="#" data-toggle="collapse" data-target="#collapse_4"
+                                                aria-expanded="true" class="">
+                                                <i class="icon-control fa fa-chevron-down"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-chevron-down"
+                                                        viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd"
+                                                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                                    </svg></i>
+                                                <h6 class="title ">Brand </h6>
+                                            </a>
+                                        </header>
+                                        <div class="colorlib-content collapse show" id="collapse_4">
+                                            <div class="card-body">
+
+                                                <% brands.forEach(brand=>{ %>
+
+                                                    <ul class="list-menu ">
+                                                        <li>
+                                                            <input type="checkbox" class="brand-control-input"
+                                                            data-brand="<%= brand._id %>">
+                                                        <span class="text-black" style="padding-left: .5rem;">
+                                                            <%= brand.brandName %>
+                                                        </span>
+                                                         
+                                                        </li>
+
+                                                    </ul>
+                                                    <% }); %>
+                                            </div>
+                                    </article> <!-- filter-group .// -->
+
+                                    <article class="colorlib-group">
+                                        <header class="card-header">
+                                            <a href="#" data-toggle="collapse" data-target="#collapse_3"
+                                                aria-expanded="true" class="">
+                                                <i class="icon-control fa fa-chevron-down"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-chevron-down"
+                                                        viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd"
+                                                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                                    </svg></i>
+                                                <h6 class="title">Price range </h6>
+                                            </a>
+                                        </header>
+                                        <div class="colorlib-content collapse show" id="collapse_3">
+                                            <div class="card-body">
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <ul class="list-menu">
+                                                            <li>
+                                                                <input type="checkbox" class="price-control-input " data-range="lt2000">
+                                                                <span class="text-black" style="padding-left: .5rem;">Under ₹2,000</span>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" class="price-control-input " data-range="lt4000">
+                                                                <span class="text-black" style="padding-left: .5rem;">₹2,000 - ₹4,000</span>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" class="price-control-input" data-range="lt8000">
+                                                                <span class="text-black" style="padding-left: .5rem;">₹4,000 - ₹8,000</span>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" class="price-control-input " data-range="lt15000">
+                                                                <span class="text-black" style="padding-left: .5rem;">₹8,000 - ₹15,000</span>
+                                                            </li>
+                                                            <li>
+                                                                <input type="checkbox" class="price-control-input " data-range="gt15000">
+                                                                <span class="text-black" style="padding-left: .5rem;">Over ₹15,000</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- card-body.// -->
+                                        </div>
+                                    </article> <!-- filter-group .// -->
+
+                                </div> <!-- card.// -->
+
+                            </aside> <!-- col.// -->
+                            <main class="col-md-9">
+
+                                <!-- <header class="border-bottom mb-4 pb-3"> -->
+                                <!-- <div class="form-inline"> -->
+                                <!-- <span class="mr-md-auto">32 Items found </span> -->
+
+                                <!-- </div> -->
+                                <!-- </header>sect-heading -->
+
+                                <!-- <div class="colorlib-product"> -->
+                                    <div class="container">
+                                        <div class="row row-pb-md">
+                                            <% products.forEach(product=> { %>
+                                                <div class="col-md-4 ">
+                                                    <figure class="card card-product-grid">
+                                                        <div class="img-wrap">
+                                                            <% if (product.image && product.image.length> 0) { %>
+                                                               <a href="./productDetails?id=<%= product._id %>"><img
+                                                                src="/public/uploadProduct/<%= product.image[0] %>">
+                                                            </a>
+                                                            <% } %>
+                                                                
+                                                        </div>
+                                                        <!-- img-wrap.// -->
+                                                        <figcaption class="info-wrap">
+                                                            <div class="fix-height ">
+                                                                <a href="./productDetails?id=<%= product._id %>"
+                                                                    class="title">
+                                                                    <%= product.product_name %> 
+                                                                </a>
+                                                                <span class="text-success"><%=product.offer%>%offer</span>
+                                                                <div class="price-wrap mt-2">
+                                                                    <span class=""> ₹<%= product.product_sales_price %>
+                                                                    </span>
+                                                                    <s class="price-item price-item--regular pl-1 "> ₹
+                                                                        <%=product.product_price %>
+                                                                    </s>
+                                                                </div>
+                                                                <!-- price-wrap.// -->
+                                                                <!-- <div class="price-wrap mt-1">
+                                                             <s class="price-item price-item--regular"> <%= product.product_sales_price %></s>
+                                                                  </div> -->
+                                                                <!-- price-wrap.// -->
+                                                            </div>
+                                                            <!-- Wishlist Icon -->
+
+                                                            <div class="wishlist-icon">
+                                                                <a onclick="addToWishlist('<%= product._id %>')">
+                                                                    <i class="iconwishlist mb-md-1"></i>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                                        viewBox="0 0 24 24" width="20" height="20">
+                                                                        <path
+                                                                            d="m12 20.703.343.667a.748.748 0 0 1-.686 0l-.003-.002-.007-.003-.025-.013a31.138 31.138 0 0 1-5.233-3.576C3.8 15.573 1 12.332 1 8.514v-.001C1 5.053 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262a31.148 31.148 0 0 1-5.233 3.576l-.025.013-.007.003-.002.001ZM6.736 4C4.657 4 2.5 5.88 2.5 8.514c0 3.107 2.324 5.96 4.861 8.12a29.655 29.655 0 0 0 4.566 3.175l.073.041.073-.04c.271-.153.661-.38 1.13-.674.94-.588 2.19-1.441 3.436-2.502 2.537-2.16 4.861-5.013 4.861-8.12C21.5 5.88 19.343 4 17.264 4c-2.106 0-3.801 1.389-4.553 3.643a.751.751 0 0 1-1.422 0C10.537 5.389 8.841 4 6.736 4Z">
+                                                                        </path>
+                                                                    </svg>
+                                                                </a>
+                                                            </div>
+                                                            <% if (product.quantity <=0) { %>
+                                                                <button href=""
+                                                                    class="btn btn-block btn-outline-warning">Out of
+                                                                    stock</button>
+                                                                <% } else { %>
+                                                                    <% if(user){%>
+                                                                        <button class="btn btn-block btn-google"
+                                                                            onclick="addtocart('<%= product._id %>')"
+                                                                            data-product-id="<%= product._id %>">Add to
+                                                                            cart</button>
+                                                                        <%} else { %>
+                                                                            <a href="/login"
+                                                                                class="btn btn-block btn-check">Login
+                                                                                its
+                                                                                yours</a>
+
+                                                                            <%}%>
+                                                                                <% } %>
+                                                        </figcaption>
+                                                    </figure>
+                                                </div>
+                                                <% }) %>
+                                        </div>
+                                    </div>
+                                <!-- </div> -->
+                            </main> <!-- col.// -->
+                        </div>
+                    </div> <!-- container .//  -->
+                </section>
+
+            </div>
+
+
+            <div class=" row ">
+                <div class="  col-md-12 text-center">
+                    <div class=" p-5 text-center d-flex justify-content-center ">
+                        <div class="pagination ">
+                            <% for (let i=1; i <=totalPages; i++) { %>
+                                <a href="?page=<%= i %>"
+                                    class="btn-pagination<%= i === currentPage ? ' current-page' : '' %>">
+                                    <%= i %>
+                                </a>
+                                <% } %>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <footer id="colorlib-footer" role="contentinfo">
+            <div class="container">
+                <div class="row row-pb-md">
+                    <div class="col footer-col colorlib-widget">
+                        <h4>About TIKTIK</h4>
+                        <p>YOU CAN BUY TIME</p>
+                        <p>
+                        <ul class="colorlib-social-icons">
+                            <li><a href="#"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                            <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="col footer-col colorlib-widget">
+                        <h4>Customer Care</h4>
+                        <p>
+                        <ul class="colorlib-footer-links">
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Returns/Exchange</a></li>
+                            <li><a href="#">Gift Voucher</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">Special</a></li>
+                            <li><a href="#">Customer Services</a></li>
+                            <li><a href="#">Site maps</a></li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="col footer-col colorlib-widget">
+                        <h4>Information</h4>
+                        <p>
+                        <ul class="colorlib-footer-links">
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Delivery Information</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Support</a></li>
+                            <li><a href="#">Order Tracking</a></li>
+                        </ul>
+                        </p>
+                    </div>
+
+                    <div class="col footer-col">
+                        <h4>News</h4>
+                        <ul class="colorlib-footer-links">
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Exhibitions</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col footer-col">
+                        <h4>Contact Information</h4>
+                        <ul class="colorlib-footer-links">
+                            <li>LuLu International Shopping Malls Pvt. Ltd, <br>34/1000, N.H 47,Edapally, Kochi - 682
+                                024, Kerala</li>
+                            <li><a href="tel://1234567920">+ 91 8590228054</a></li>
+                            <li><a href="mailto:info@yoursite.com">tiktik@tiktik.com</a></li>
+                            <li><a href="#">yoursite.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copy">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <p>
+                            <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
+    </div>
+
+
+
+    <!-- filter by brand -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const productBrand = new Set();
+            const productCategory = new Set();
+            const productRange = new Set();
+            
+            let sort;
+            let search
+            let page
+            let pb = []
+            let pc = []
+            let pr = []
+            let pcategory = []
+            let pbrand = []
+            console.log(pbrand);
+
+            function brandAddOrRemoveValue(value) {
+                if (productBrand.has(value)) {
+                    productBrand.delete(value);
+                } else {
+                    productBrand.add(value);
+                }
+            }
+            function colorAddOrRemoveValue(value) {
+                if (productColor.has(value)) {
+                    productColor.delete(value);
+                } else {
+                    productColor.add(value);
+                }
+            }
+            function rangeAddOrRemoveValue(value) {
+                if (productRange.has(value)) {
+                    productRange.delete(value);
+                } else {
+                    productRange.add(value);
+                }
+            }
+            function categoryAddOrRemoveValue(value) {
+                if (productCategory.has(value)) {
+                    productCategory.delete(value);
+                } else {
+                    productCategory.add(value);
+                }
+            }
+            const categoryButtons = document.querySelectorAll('.category-control-input');
+            const brandButtons = document.querySelectorAll('.brand-control-input');
+            const searchInput = document.getElementById("searchInput");
+            const searchButton = document.getElementById("searchButton");
+            search = searchInput.value;
+            const paginationButtons = document.querySelectorAll('.pagination-button');
+            const productsContainer = document.querySelector(' .container .row.row-pb-md');
+            const priceButtons = document.querySelectorAll('.price-control-input');
+            const paginationContainer = document.querySelector('.pagination');
+
+            searchButton.addEventListener("click", function () {
+                search = searchInput.value;
+                $.ajax({
+                    url: '/search',
+                    data: {
+                        productBrand: pb,
+                        // productColor: pc,
+                        productRange: pr,
+                        productCategory: pcategory,
+                        // sort: sort,
+                        search: search,
+                        page: page
+                    },
+                    method: 'post',
+                    success: (response) => {
+                        if (response.noProducts) {
+                            Swal.fire({
+                                title: 'No Matching Products',
+                                confirmButtonText: 'OK',
+                                confirmButtonColor: '#88c8bc',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = '/watches'
+                                }
+                            });
+                        } else {
+                            updateProducts(response.products,response.user);
+                            updatePagination(response.currentPage, response.totalPages)
+                        }
+                    }
+                })
+            })
+            categoryButtons.forEach(button => {
+                button.addEventListener('change', async () => {
+                    const category = button.getAttribute('data-category');
+                    categoryAddOrRemoveValue(category)
+                    pcategory = [...productCategory]
+                    console.log(pcategory, 'pcate')
+                    $.ajax({
+                        url: '/search',
+                        data: {
+                            productBrand: pb,
+                            // productColor: pc,
+                            productRange: pr,
+                            productCategory: pcategory,
+                            // sort: sort,
+                            search: search,
+                            // page: page
+                        },
+                        method: 'post',
+                        success: (response) => {
+                            if (response.noProducts) {
+                                Swal.fire({
+                                    title: 'No Matching Products',
+                                    confirmButtonText: 'OK',
+                                    confirmButtonColor: '#88c8bc',
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = '/watches'
+                                    }
+                                });
+                            } else {
+                                console.log(response)
+                                updateProducts(response.products,response.user);
+                                updatePagination(response.currentPage, response.totalPages)
+                            }
+                        }
+                    })
+                });
+            });
+            brandButtons.forEach(button => {
+				button.addEventListener('change', async () => {
+					const brand = button.getAttribute('data-brand');
+					brandAddOrRemoveValue(brand)
+					pb = [...productBrand]
+                    console.log(pb, 'pcate')
+                    $.ajax({
+                        url: '/search',
+                        data: {
+                            productBrand: pb,
+                            // productColor: pc,
+                            productRange: pr,
+                            productCategory: pcategory,
+                            // sort: sort,
+                            search: search,
+                            // page: page
+                        },
+                        method: 'post',
+                        success: (response) => {
+                            if (response.noProducts) {
+                                Swal.fire({
+                                    title: 'No Matching Products',
+                                    confirmButtonText: 'OK',
+                                    confirmButtonColor: '#88c8bc',
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = '/watches'
+                                    }
+                                });
+                            } else {
+                                console.log(response)
+                                updateProducts(response.products,response.user);
+                                updatePagination(response.currentPage, response.totalPages)
+                            }
+                        }
+                    })
+                });
+            });
+            priceButtons.forEach(button => {
+				button.addEventListener('change', async () => {
+					let price = button.getAttribute('data-range');
+					rangeAddOrRemoveValue(price)
+					pr = [...productRange]
+					$.ajax({
+						url: '/search',
+						data: {
+							productBrand: pb,
+							// productColor: pc,
+							productRange: pr,
+							productCategory: pcategory,
+							// sort: sort,
+							search: search,
+							// page: page
+						},
+						method: 'post',
+						success: (response) => {
+							if (response.noProducts) {
+								Swal.fire({
+									title: 'No Matching Products',
+									confirmButtonText: 'OK',
+									confirmButtonColor: '#88c8bc',
+								}).then((result) => {
+									if (result.isConfirmed) {
+										window.location.href = '/watches'
+									}
+								});
+							} else {
+								updateProducts(response.products,response.user);
+								updatePagination(response.currentPage, response.totalPages, response.pages)
+							}
+						}
+					})
+				});
+			});
+
+
+            // paginationContainer.addEventListener('click', (event) => {
+            //     const target = event.target;
+            //     page = target.getAttribute('data-page');
+            //     console.log(page, 'pgno')
+            //     $.ajax({
+            //         url: '/filterProduct',
+            //         data: {
+            //             // productBrand: pb,
+            //             // productColor: pc,
+            //             // productRange: pr,
+            //             productCategory: pcategory,
+            //             // sort: sort,
+            //             search: search,
+            //             page: page
+            //         },
+            //         method: 'post',
+            //         success: (response) => {
+            //             if (response.noProducts) {
+            //                 Swal.fire({
+            //                     title: 'No Matching Products',
+            //                     confirmButtonText: 'OK',
+            //                     confirmButtonColor: '#88c8bc',
+            //                 }).then((result) => {
+            //                     if (result.isConfirmed) {
+            //                         window.location.href = '/watches'
+            //                     }
+            //                 });
+            //             } else {
+            //                 updateProducts(response.products,response.user);
+            //                 updatePagination(response.currentPage, response.totalPages)
+            //             }
+            //         }
+            //     })
+            // }
+            // );
+            function updateProducts(products,user) {
+                console.log(products,'pro')
+                productsContainer.innerHTML = ''; // Clear existing products
+                products.forEach(product => {
+                    const productHtml = `
+            <div class="col-md-4 ">
+                <figure class="card card-product-grid">
+                    <div class="img-wrap">
+                        ${product.image && product.image.length > 0
+                            ? `<img src="/public/uploadProduct/${product.image[0]}">`
+                            : ''
+                        }
+                    </div>
+                    <!-- img-wrap.// -->
+                    <figcaption class="info-wrap">
+                        <div class="fix-height ">
+                            <a href="./productDetails?id=${product._id}" class="title">
+                                ${product.product_name}
+                            </a>
+                            <span class="text-success">${product.offer}%offer</span>
+                            <div class="price-wrap mt-2">
+                                <span class=""> ₹${product.product_sales_price}</span>
+                                <s class="price-item price-item--regular pl-1 "> ₹${product.product_price}</s>
+                            </div>
+                        </div>
+
+                        <div class="wishlist-icon">
+                            <a onclick="addToWishlist('${product._id}')">
+                                <i class="iconwishlist mb-md-1"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                                    <path
+                                        d="m12 20.703.343.667a.748.748 0 0 1-.686 0l-.003-.002-.007-.003-.025-.013a31.138 31.138 0 0 1-5.233-3.576C3.8 15.573 1 12.332 1 8.514v-.001C1 5.053 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262a31.148 31.148 0 0 1-5.233 3.576l-.025.013-.007.003-.002.001ZM6.736 4C4.657 4 2.5 5.88 2.5 8.514c0 3.107 2.324 5.96 4.861 8.12a29.655 29.655 0 0 0 4.566 3.175l.073.041.073-.04c.271-.153.661-.38 1.13-.674.94-.588 2.19-1.441 3.436-2.502 2.537-2.16 4.861-5.013 4.861-8.12C21.5 5.88 19.343 4 17.264 4c-2.106 0-3.801 1.389-4.553 3.643a.751.751 0 0 1-1.422 0C10.537 5.389 8.841 4 6.736 4Z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                        ${product.quantity <= 0
+                            ? `<button href="" class="btn btn-block btn-outline-warning">Out of stock</button>`
+                            : user
+                                ? `<button class="btn btn-block btn-google" onclick="addtocart('${product._id}')" data-product-id="${product._id}">Add to cart</button>`
+                                : `<a href="/login" class="btn btn-block btn-check">Login, it's yours</a>`
+                        }
+                    </figcaption>
+                </figure>
+            </div>
+        `;
+                    productsContainer.insertAdjacentHTML('beforeend', productHtml);
+                });
+            }
+            function updatePagination(currentPage, totalPages) {
+                paginationContainer.innerHTML = '';
+                let paginationHtml = ''
+                for (let i = 1; i <= totalPages; i++) {
+                    paginationHtml += `
+                    
+      <a href="?page=${i}" class="btn-pagination${i === currentPage ? currentPage : ''}" data-page="${i}">
+        ${i}
+      </a>
+    `;
+                }
+                paginationContainer.insertAdjacentHTML('beforeend', paginationHtml);
+            }
+        })               
+    </script>
+
+    <!-- cart script -->
+    <script>
+        function addtocart(productId) {
+            console.log(productId);
+            fetch("/add-item-to-cart", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ productId }),
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error("Network response was not ok");
+                    }
+                })
+                .then((data) => {
+                    console.log(data);
+                    const updatedCartQuantity = data.cartQuantity;
+                    const itemInCartElement = document.getElementById("item-in-cart");
+                    if (itemInCartElement) {
+                        itemInCartElement.textContent = updatedCartQuantity.toString();
+                    }
+                    // Display a SweetAlert2 notification for "Added to cart"
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Added to cart',
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+    </script>
+
+
+
+
+    <script>
+        async function addToWishlist(productId) {
+            try {
+                const response = await fetch("/addToWishlist", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ productId }),
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.success) {
+                        // Product added to wishlist successfully, show a SweetAlert2 success notification
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: data.message,
+                            showConfirmButton: false,
+                            timer: 1000
+                        });
+                    } else {
+                        // Handle error response here if needed
+                        console.error(data.message);
+                    }
+                } else {
+                    // Handle network error here if needed
+                    console.error("Network response was not ok");
+                }
+            } catch (error) {
+                // Handle other errors here if needed
+                console.error(error);
+            }
+        }
+    </script>
+
+
+
+    <!-- custom javascript -->
+    <script src="/public/sideBar/js/script.js" type="text/javascript"></script>
+    <!-- jQuery -->
+    <script src="/public/sideBar/js/jquery-2.0.0.min.js" type="text/javascript"></script>
+    <!-- Bootstrap4 files-->
+    <script src="/public/sideBar/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <!-- jQuery -->
+    <script src="/public/js/jquery.min.js"></script>
+    <!-- popper -->
+    <script src="/public/js/popper.min.js"></script>
+    <!-- bootstrap 4.1 -->
+    <!-- <script src="/public/js/bootstrap.min.js"></script> -->
+    <!-- jQuery easing -->
+    <script src="/public/js/jquery.easing.1.3.js"></script>
+    <!-- Waypoints -->
+    <script src="/public/js/jquery.waypoints.min.js"></script>
+    <!-- Flexslider -->
+    <script src="/public/js/jquery.flexslider-min.js"></script>
+    <!-- Owl carousel -->
+    <script src="/public/js/owl.carousel.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="/public/js/jquery.magnific-popup.min.js"></script>
+    <script src="/public/js/magnific-popup-options.js"></script>
+    <!-- Date Picker -->
+    <script src="/public/js/bootstrap-datepicker.js"></script>
+    <!-- Stellar Parallax -->
+    <script src="/public/js/jquery.stellar.min.js"></script>
+    <!-- Main -->
+    <script src="/public/js/main.js"></script>
+
+
+
+</body>
+
+</html>

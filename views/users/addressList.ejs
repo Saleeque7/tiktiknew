@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIKTIK</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/userProfile/user.css">
+    <link href="/public/adminAssets/css/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+</div>
+</div>
+<div class="screen-overlay"></div>
+<aside class="navbar-aside" id="offcanvas_aside">
+    <div class="aside-top">
+        <a href="" class="brand-wrap logo menu-absolute m-0 h6">
+        </a>
+        <div>
+            <button class="btn btn-icon btn-aside-minimize"> <i class="text-muted material-icons md-menu_open"></i>
+            </button>
+        </div>
+    </div>
+    <nav>
+        <ul class="menu-aside">
+            <li class="menu-item ">
+                <a class="menu-link" href="/userProfile"> <i class="icon material-icons md-perm_identity"></i>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li class="menu-item ">
+                <a class="menu-link active" href="/showWalletHistory"> <i
+                        class="icon material-icons  md-account_balance_wallet"></i>
+                    <span class="text">Wallet </span>
+                </a>
+
+            </li>
+
+            <li class="menu-item ">
+                <a class="menu-link" href="/listOrder"> <i class="icon material-icons md-shopping_bag"></i>
+                    <span class="text">List orders</span>
+                </a>
+
+            </li>
+         
+
+        </ul>
+        <ul class="menu-aside active">
+            <li class="menu-item has-submenu">
+                <a class="menu-link" > <i class="icon material-icons md-location_on"></i>
+                    <span class="text">Address</span>
+                </a>
+
+                <div class="submenu">
+                    <a href="/getaddressList">address List</a>
+                    <a href="/loadAddress">Add address</a>
+                    <!-- <a href="" class="active">edit address</a> -->
+                </div>
+            </li>
+         
+        </ul>
+    </nav>
+</aside>
+    <div class="container">
+<main class="main-wrap">
+    <section class="content-main">
+        <div class="row">
+            
+            <form action="/setDefaultAddress" method="post">
+                <% userAddress.forEach((user, userIndex) => { %>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h4 class="card-title">Address</h4>
+                                <% user.addresses.forEach((address, addressIndex) => { %>
+                                    <input type="radio" name="defaultAddress" value="<%= address._id %>" <%= address.default ? 'checked' : '' %>>
+                                    <p><strong>Address:</strong> <%= address.address %>, <%= address.town %>, <%= address.state %></p>
+                                    <p><strong>Country:</strong> <%= address.country %></p>
+                                    <p><strong>Postal Code:</strong> <%= address.postalCode %></p>
+                                    <p><strong>Email:</strong> <%= address.email %></p>
+                                    <p><strong>Phone Number:</strong> <%= address.phoneNumber %></p>
+                                    <button class="btn btn-outline-dark edit-address-btn"><a href="/edit?id=<%= address._id %>">Edit Address</a></button>
+                                    <% if (addressIndex < user.addresses.length - 1) { %>
+                                        <hr>
+                                    <% } %>
+                                <% }); %>
+                            </div>
+                            <hr>
+                            <button type="submit" class="btn btn-primary edit-address-btn">Set as Default</button>
+                        </div>
+                    </div>
+                <% }); %>
+            </form>
+        </div>
+    </section>
+</main>
+<div class="position-absolute top-0 end-0 mt-3 me-3">
+    <a href="/home" class="btn btn-primary"><i class="text-muted material-icons md-home"></i>Home</a>
+    <!-- <a href="/checkout" class="btn btn-primary"><i class="text-muted material-icons md-payment"></i>Checkout</a> -->
+</div>
+</div>
+    
+    
+    <script src="/public/adminAssets/js/vendors/jquery-3.6.0.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/select2.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/perfect-scrollbar.js"></script>
+    <script src="/public/adminAssets/js/vendors/jquery.fullscreen.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/chart.js"></script>
+    <!-- Main Script -->
+    <script src="/public/adminAssets/js/main.js" type="text/javascript"></script>
+    <script src="/public/adminAssets/js/custom-chart.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

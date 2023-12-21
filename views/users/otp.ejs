@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TIKTIK</title>
+    <link rel="stylesheet" href="/public/loginCss/bootstrap.css" />
+    <link rel="stylesheet" href="/public/loginCss/main.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js@1.11.0/dist/toastify.min.css">
+</head>
+
+<body>
+
+
+            <!--================Login Box Area =================-->
+            <section class="  section-with-background-image  ">
+                <div id="messageContainer">
+                    <% if (typeof message !== 'undefined') { %>
+                        <div class="alert alert-success text-center py-2 mb-2">
+                            <h5>
+                                <%= message %>
+                            </h5>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="container1 ">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="login_form_inner p-2">
+                                <!-- <h3>Log in to enter</h3> -->
+                                <form method="POST" action="/VerifyOtp"  id="myForm"> <!-- Specify the method (POST) and action (your server route) -->
+                                    <h1>OTP VERIFICATION</h1> 
+                                    <input type="hidden" name="userId" value="<%= userId %>" >
+                                     <h5 class="fw-normal " style="letter-spacing: 1px;">Enter OTP</h5>
+                                     <!-- OTP input boxes with JavaScript -->
+                                     <div id="errorMessages" class="text-warning" ></div>
+                                
+                                     <div class="d-flex justify-content-center">
+                                         <input class="otp-input" type="text" maxlength="1" name="otp1" onkeyup="moveToNext(this, 'otp2')" />
+                                         <input class="otp-input" type="text" maxlength="1" id="otp2" name="otp2" onkeyup="moveToNext(this, 'otp3')" />
+                                         <input class="otp-input" type="text" maxlength="1" id="otp3" name="otp3" onkeyup="moveToNext(this, 'otp4')" />
+                                         <input class="otp-input" type="text" maxlength="1" id="otp4" name="otp4" />
+                                     </div> 
+
+                                     <div id="timer"></div>
+                                     <!-- <button id="resendButton" style="display: none;">Resend OTP</button> -->
+
+                                     <div class="pt-3 mb-4">
+                                        <button class="btn btn-dark btn-lg btns" type="submit" id="verifybutton" >Verify OTP</button> <!-- Change type to "submit" -->
+                                    </div>
+                                    
+                                    
+                                    <div id="timer"></div>
+                                    <a id="resendOtpButton" class="btn btn-sm btn-light" href="#">Resend OTP</a>
+
+                              <!-- <a  class="btn btn-sm btn-light" href="recentOpt?id=<%= userId %>">Resend OTP</a> -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!--================End Login Box Area =================-->
+</body>
+
+</html>
+<script>
+    function removeMessage() {
+    const messageContainer = document.getElementById("messageContainer");
+    if (messageContainer) {
+        setTimeout(function () {
+            messageContainer.innerHTML = ""; // Clear the message
+        }, 3000); // 5000 milliseconds (5 seconds)
+    }
+}
+
+// Call the function when the page loads
+document.addEventListener("DOMContentLoaded", function () {
+    removeMessage();
+});
+</script>
+<script>
+    // JavaScript function to move focus to the next input
+    function moveToNext(input, nextInputId) {
+        if (input.value.length === input.maxLength) {
+            document.getElementById(nextInputId).focus();
+        }
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- ... Your HTML code ... -->
+    <!-- Include SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Include SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    
+    
+
+<script>
+    let timer=true
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("myForm");
+        const errorMessages = document.getElementById("errorMessages");
+        const countdownElement = document.getElementById("timer");
+
+        const countdownDuration = 20
+
+        let countdown = countdownDuration;
+        let countdownInterval;
+
+        function updateCountdown() {
+            countdown -= 1;
+            const minutes = Math.floor(countdown / 60);
+            const seconds = countdown % 60;
+            countdownElement.textContent = `Time left: ${minutes} min ${seconds} sec`;
+
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+                countdownElement.textContent = "Time has expired";
+                timer=false
+                // You can add additional logic here, such as disabling the form or showing a "Resend OTP" button.
+            }
+        }
+
+        countdownInterval = setInterval(updateCountdown, 1000);
+        // Embed the EJS variable 'userId' into your JavaScript code
+         const userIdInput = document.querySelector('input[name="userId"]');
+        const userId = userIdInput.value;
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            
+
+            // Get the entered OTP from the input fields
+            const otp1 = document.getElementsByName("otp1")[0].value;
+            const otp2 = document.getElementsByName("otp2")[0].value;
+            const otp3 = document.getElementsByName("otp3")[0].value;
+            const otp4 = document.getElementsByName("otp4")[0].value;
+            const enteredOTP = otp1 + otp2 + otp3 + otp4;
+
+            // Make an AJAX request to verify the OTP
+            if(!timer){
+                errorMessages.textContent = "The time has expired. Please resend OTP."
+            }
+            else{
+                fetch("/verifyOTP", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ otp: enteredOTP, userId: userId }),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    // OTP is correct
+                    Swal.fire({
+                        position: 'center',
+                        icon: "success",
+                        title: "OTP Verified,User Registration Successfull",
+                        text: "You can now proceed.",
+                    })
+                    .then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/login'; // Redirect to the login page
+            }
+        })
+    }  
+                else {
+                    // OTP is incorrect
+                    errorMessages.innerHTML = data.message;
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+            }
+          
+        });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const resendOtpLink = document.getElementById("resendOtpButton");
+        const userIdInput = document.querySelector('input[name="userId"]');
+        const errorMessages = document.getElementById("errorMessages");
+        const countdownElement = document.getElementById("timer");
+        const userId = userIdInput.value;
+        timer = true
+
+        let countdownDuration = 20;
+        let countdownInterval;
+
+        function startCountdown() {
+        countdown = countdownDuration;
+        countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Update the countdown immediately
+    }
+
+    // Function to update the countdown
+    function updateCountdown() {
+        countdown -= 1;
+        const minutes = Math.floor(countdown / 60);
+        const seconds = countdown % 60;
+        countdownElement.textContent = `Time left: ${minutes} min ${seconds} sec`;
+
+        if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            countdownElement.textContent = "Time has expired";
+            timer = false;
+            // You can add additional logic here, such as disabling the form or showing a "Resend OTP" button.
+        }
+    }
+
+    // Call the startCountdown function to initiate the countdown
+    startCountdown();
+
+        resendOtpLink.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            if(!timer){
+                timer = true
+                startCountdown(); // Restart the countdown
+            countdownElement.textContent = "Resending OTP...";
+            // Make an AJAX request to resend OTP
+            fetch("/resendOTP", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ userId:userId }),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    // OTP has been resent
+                    Swal.fire({
+                        icon: "success",
+                        title: "OTP Resent",
+                        text: "A new OTP has been sent to your email.",
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
+                } else {
+                    // Handle errors
+                    console.error("Error resending OTP");
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+        }else{
+            errorMessages.innerHTML = "please wait....."
+        }
+        });
+    });
+
+</script>
+
+<!-- JavaScript for Resending OTP -->
+
+    
+

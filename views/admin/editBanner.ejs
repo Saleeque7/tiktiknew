@@ -1,0 +1,121 @@
+<%- include('../layouts/adminHeader.ejs') %>
+<main class="main-wrap">
+  <header class="main-header navbar">
+    <div class="col-search">
+        <form class="searchform">
+            <!-- <div class="input-group">
+                <input list="search_terms" type="text" class="form-control" placeholder="Search term">
+                <button class="btn btn-light bg" type="button"> <i class="material-icons md-search"></i></button>
+            </div> -->
+            <datalist id="search_terms">
+                <option value="Products">
+               
+            </datalist>
+        </form>
+    </div>
+    <div class="col-nav">
+        <button class="btn btn-icon btn-mobile me-auto" data-trigger="#offcanvas_aside"> <i class="material-icons md-apps"></i> </button>
+        <ul class="nav">
+            <li class="nav-item">
+                <!-- <a class="nav-link btn-icon" href="#">
+                    <i class="material-icons md-notifications animation-shake"></i>
+                    <span class="badge rounded-pill">3</span> -->
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn-icon darkmode" href="#"> <i class="material-icons md-nights_stay"></i> </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="requestfullscreen nav-link btn-icon"><i class="material-icons md-cast"></i></a>
+            </li>
+           
+            <li class="dropdown nav-item">
+                <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="/public/adminAssets/imgs/people/avatar5.jpg" alt="User"></a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="/logout"><i class="material-icons md-exit_to_app"></i>Logout</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>
+<section class="content-main">
+    <h1 class="d-flex justify-content-center">Edit Banner</h1>
+<div class="wrapper">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-12">   
+            <div class="card shadow mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <form id="categoryForm" action="/admin/edit_banner?id=<%= data._id%>" method="POST" enctype="multipart/form-data">
+                      <div class="form-group mb-3">
+                        <label for="simpleinput">Title One</label>
+                        <input type="text" name="titleOne" id="titleOne" value="<%= data.titleOne %>" class="form-control" required />
+                        <label for="simpleinput">Title Two</label>
+                        <input type="text" name="titleTwo" id="titleTwo" value="<%= data.titleTwo %>" class="form-control" required />
+                        <label for="simpleinput">Title Three</label>
+                        <input type="text" name="titleThree" id="titleThree" value="<%= data.titleThree %>" class="form-control" required />
+                        <!-- <label for="simpleinput">Title Four</label>
+                        <input type="text" name="titleFour" id="titleFour" class="form-control" required /> -->
+                        <div class="form-group row">
+                          <label for="image" class="col-sm-3 col-form-label">Banner Image</label>
+                          <div class="col-sm-9">
+                            <div class="image-preview">
+                                <!-- Display the current profile image if available -->
+                                <img id="currentProfileImage" src="/public/userImages/<%= data.bannerImage %>" alt="Current Profile Image" width="150">
+                            </div>
+                              <div>
+                                  <!-- File input for changing the image -->
+                                  <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                                  <div id="imageError" class="text-danger"></div>
+                              </div>
+                          </div>
+                      </div>
+                        
+                      </div>
+                     
+                      <button type="submit" class="btn mb-2 btn-success">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+</main>
+
+<script src="/public/adminAssets/js/vendors/jquery-3.6.0.min.js"></script>
+<script src="/public/adminAssets/js/vendors/bootstrap.bundle.min.js"></script>
+<script src="/public/adminAssets/js/vendors/select2.min.js"></script>
+<script src="/public/adminAssets/js/vendors/perfect-scrollbar.js"></script>
+<script src="/public/adminAssets/js/vendors/jquery.fullscreen.min.js"></script>
+<script src="/public/adminAssets/js/vendors/chart.js"></script>
+   <!-- Main Script -->
+   <script src="/public/adminAssets/js/main.js" type="text/javascript"></script>
+   <script src="/public/adminAssets/js/custom-chart.js" type="text/javascript"></script>
+</body>
+    <script>document.getElementById("image").addEventListener("change", function (e) {
+        const currentImage = document.getElementById("currentProfileImage");
+        const file = e.target.files[0];
+    
+        // Check if a file was selected
+        if (file) {
+            const reader = new FileReader();
+    
+            reader.onload = function (e) {
+                // Display a preview of the selected image
+                currentImage.src = e.target.result;
+            };
+    
+            reader.readAsDataURL(file);
+        }
+    });
+    </script>
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-categories.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:21 GMT -->
+</html>

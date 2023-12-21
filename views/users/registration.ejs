@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/public/loginCss/bootstrap.css" />
+    <link rel="stylesheet" href="/public/loginCss/main.css" />
+    	<!-- Include SweetAlert2 CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+	<!-- Include SweetAlert2 JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+  </head>
+  <body>
+    <!--================Login Box Area =================-->
+    <section class="login_box_area ">
+      <% if(typeof message !=='undefined'){ %>
+      <div class="alert alert-success text-center py-2 mb-2">
+        <h5><%= message %></h5>
+      </div>
+      <% } %>
+      <div class="container ">
+        <div class="login_form_inner pb-4">
+          <div
+            class="d-flex flex-wrap align-items-center justify-content-center mb-2"
+          >
+            <h1 class="d-flex mt-2">Registration Form</h1>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <form
+                class="row login_form"
+                enctype="multipart/form-data"
+              >
+                <div class="col-md-12 form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Username"
+                    onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Username'"
+                   
+                  />
+                </div>
+                <span id="nameError" class="text-danger"></span>
+                <div class="col-md-12 form-group">
+                  <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Enter Email"
+                  onfocus="this.placeholder = ''"
+                  onblur="this.placeholder = 'Enter Email'"
+                 
+                  />
+                </div>
+                <span id="emailError" class="text-danger"></span>
+                <!-- <div class="creat_account">
+                  <% if (typeof message1 !== 'undefined') { %>
+                  <h6><%= message1 %></h6>
+                  <% } %>
+                </div> -->
+                <div class="col-md-12 form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="mobile"
+                    name="mobile"
+                    placeholder="Mobile Number"
+                    onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Mobile Number'"
+                    
+                  />
+                </div>
+                <span id="mobileError" class="text-danger"></span>
+
+                <div class="col-md-12 form-group ">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="referralCode"
+                    name="referralCode"
+                    placeholder="Enter Code(*optional)"
+                    onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Enter Code(*optional)'"
+                   
+                  />
+                </div>
+                <span id="referalError" class="text-danger"></span>
+
+                <div class="col-md-12 form-group">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Password'"
+                    
+                  />
+                </div>
+                <span id="passwordError" class="text-danger"></span>
+
+                <div class="col-md-12 form-group">
+                  <label class="form-control image" for="image"
+                    >Add Your Image</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="image"
+                    name="image"
+                    accept="image/jpeg, image/png, image/gif"
+                  />
+                </div>
+                <span id="imageError" class="text-danger"></span>
+
+
+                <div class="col-md-12 form-group">
+                  <button type="button" value="register" onclick="validateForm()" class="primary-btn">
+                    Submit
+                  </button>
+                </div>
+                <div class="signin">
+                  <p>Already have an account? <a href="/login">Sign in</a></p>
+                </div>
+              </form>
+              <div class="align-content-center" id="error-messages"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    function validateForm(){
+      const nameInput = document.getElementById('name').value;
+      const emailInput = document.getElementById("email").value;
+      const mobileInput = document.getElementById("mobile").value;
+      const passwordInput = document.getElementById("password").value;
+      const imageInput = document.getElementById("image").value
+      const nameerror = document.getElementById('nameError')
+      const emailerror = document.getElementById('emailError')
+      const mobileError = document.getElementById('mobileError')
+      const passwordError = document.getElementById('passwordError')
+      const imageError = document.getElementById('imageError')
+     
+
+    if (nameInput.length === 0) {
+      nameerror.innerText = 'Name cannot be blank'
+      return;
+    }
+    else if(nameInput.length < 4 || nameInput.length > 20){
+      nameerror.innerText = 'Name must be between 4 and 20 characters.'
+      return;
+    }else if(/^\s+$/.test(nameInput)){
+      nameerror.innerText = 'Name cannot consist of whitespace only.'
+      return;
+    }
+    else if(/[^a-zA-Z\s]/.test(nameInput)){
+      nameerror.innerText = 'Name cannot contain numbers or symbols'
+      return;
+    }
+    else if(/ {4,}/.test(nameInput)){
+      nameerror.innerText = 'Name cannot have more than 3 consecutive whitespace characters.'
+      return;
+    }
+    else{
+      nameerror.innerText = ''
+    }
+    
+
+     const atIndex = emailInput.indexOf("@");
+     const usernameBeforeAt = emailInput.substring(0, atIndex);
+    if (emailInput.length === 0) {
+      emailerror.innerText = 'email cannot be blank'
+      return;
+    }
+    else if(!/^\S+@\S+\.\S+$/.test(emailInput)) {
+      emailerror.innerText = 'Please enter a valid email address.'
+      return;
+    }else if(!/^[a-zA-Z0-9]+$/.test(usernameBeforeAt) || atIndex < 0 || atIndex < 5 || /^[0-9]+$/.test(usernameBeforeAt)){
+      emailerror.innerText = 'Email must have at least 5 characters before the @ symbol.'
+      return;
+    }
+    else{
+      emailerror.innerText = ''
+    } 
+
+    const uniqueDigits = new Set(mobileInput);
+    if(mobileInput.lenght === 0 ){
+      mobileError.innerText = 'field cannot be blank'
+      return;
+    }
+    else if(!mobileInput.match(/^\d{10}$/) || /^0+$/.test(mobileInput)){
+      mobileError.innerText = "Mobile number must be 10 digits and cannot be all zeros."
+      return;
+    }
+    else if (uniqueDigits.size < 5){
+      mobileError.innerText = "Mobile number must have at least 5 different digits."
+      return;
+    }else{
+      mobileError.innerText =''
+    }
+
+    if (passwordInput.length === 0  || /\s/.test(passwordInput)){
+      passwordError.innerText = "plaese enter a password"
+      return
+    }else if(passwordInput.length < 5){
+      passwordError.innerText = "Password must be at least 5 characters."
+      return
+    }else{
+      passwordError.innerText =''
+    }
+
+    if (!imageInput) {
+      imageError.innerText = 'Please select an image.';
+      return;
+    }
+       else {
+        imageError.innerText = '';
+      }
+
+      const referralCodeElement = document.getElementById('referralCode').value
+      console.log(referralCodeElement,"referralCodeElement");
+     const referralCodeInput = referralCodeElement ? referralCodeElement : null;
+
+console.log(referralCodeInput, "referralCodeInput");
+
+    
+     var formData = new FormData();
+formData.append('name', nameInput);
+formData.append('email', emailInput);
+formData.append('mobile', mobileInput);
+formData.append('password', passwordInput);
+formData.append('referralCode', referralCodeInput);
+formData.append('image', $('#image')[0].files[0]); 
+
+      $.ajax({
+						url: '/register',
+						type: 'POST',
+            processData: false,
+            contentType: false,
+            data: formData,					
+						success: function (data) {
+							if (data.success) {
+                console.log(data,"data");
+								window.location = `/otp?id=${data.user._id}`
+							}
+               else {
+                 if(data.isBonusEligible === false){
+                  const referalError = document.getElementById('referalError')
+                  referalError.innerText = data.message 
+                  setTimeout(()=>{
+                    referalError.innerText = ''                    
+                  },3000)
+                  }else{
+                    Swal.fire({
+                      position: "center",
+                      icon: "error",
+                      text: data.message || "An error occurred",
+                      showConfirmButton: false,
+                      timer: 1100
+                    });
+                  }
+							}
+						},
+						error: function (error) {
+							console.error('Error:', error);
+							Swal.fire({
+								icon: "error",
+								text: "An error occurred"
+							});
+						}
+					});
+				
+    }
+  </script>
+
+</html>

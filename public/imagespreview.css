@@ -1,0 +1,22 @@
+/* Style for image previews */
+.image-preview {
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+  }
+  
+  .image-preview img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  
+  .delete-image {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  

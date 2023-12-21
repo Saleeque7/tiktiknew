@@ -1,0 +1,321 @@
+<%- include('../layouts/adminHeader.ejs') %>
+    <main class="main-wrap">
+        <header class="main-header navbar">
+            <div class="col-search">
+                <form class="searchform">
+                    <!-- <div class="input-group">
+                        <input list="search_terms" type="text" class="form-control" placeholder="Search term">
+                        <button class="btn btn-light bg" type="button"> <i class="material-icons md-search"></i></button>
+                    </div> -->
+                    <datalist id="search_terms">
+                        <option value="Products">
+
+                    </datalist>
+                </form>
+            </div>
+            <div class="col-nav">
+                <button class="btn btn-icon btn-mobile me-auto" data-trigger="#offcanvas_aside"> <i class="material-icons md-apps"></i> </button>
+                <ul class="nav">
+  
+                    <li class="nav-item">
+                        <a class="nav-link btn-icon darkmode" href="#"> <i class="material-icons md-nights_stay"></i> </a>
+                    </li>
+
+                    <li class="dropdown nav-item">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="/public/adminAssets/imgs/people/avatar5.jpg" alt="User"></a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
+                            
+                            <a class="dropdown-item" href="#"><i class="material-icons md-settings"></i>Account Settings</a>
+                            
+                           
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="/logout"><i class="material-icons md-exit_to_app"></i>Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+       
+        <section class="content-main">
+            <div class="row">
+                <div class="col-9">
+                  <form action="/admin/products" method="post" enctype="multipart/form-data" id="product-form">
+                    <div class="content-header">
+                        <h2 class="content-title">Add New Product</h2>
+                        <div>
+                            <!-- <button class="btn btn-light rounded font-sm mr-5 text-body hover-up">Save to draft</button> -->
+                            <button class="btn btn-md rounded font-sm hover-up" id="submit-button">Add</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4>Basic</h4>
+                            <br>
+                            <div class="col-md-3 col-12 me-auto mb-md-0 mb-3">
+                                <label for="categoryname" class="form-label">Category</label>
+                                <select class="form-select" name="categoryname" required>
+                                    <option value="" selected disabled>Select a Category</option>
+                                    <!-- Use forEach to generate options -->
+                                    <% categories.forEach(category => { %>
+                                        <option value="<%= category._id %>">
+                                            <%= category.categoryname %>
+                                        </option>
+                                    <% }); %>
+                                </select>
+                                <div class="text-danger" id="categorynameError"></div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            
+                            <div class="mb-4">
+                                <label for="product_name" class="form-label">Product name</label>
+                                <input type="text" name="product_name" placeholder="Type here" class="form-control" id="product_name" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="bran" class="form-label">brand</label >
+                                <select class="form-select" name="brandName" required>
+                                    <option  value="" selected disabled>Select</option>
+                                    <% brand.forEach(brands =>{ %>
+                                        <option value="<%= brands._id %>" name="brandName">
+                                            <%= brands.brandName %>
+                                        </option>
+                                    <% }); %>
+                                </select> 
+                                <div class="text-danger" id="brandNameError"></div>                             
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="mb-4">
+                                        <label class="form-label">Regular price</label>
+                                        <div class="row gx-2">
+                                            <input id="regularPrice" name="product_price" placeholder="price" type="text" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mb-4">
+                                        <label class="form-label">Offer(%)</label>
+                                        <input id="offerPrice" name="offer_price" placeholder="%" type="text" class="form-control" required>
+                                        <p id="priceError" class="text-danger"></p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-4">
+                                    <div class="mb-4">
+                                        <label class="form-label">Quantity</label>
+                                        <input name="quantity" placeholder="Quantity" type="text" class="form-control"  required>
+                                    </div>
+                                </div>
+                               
+                          </div>
+                            
+                            <!-- <label class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <span class="form-check-label"> Make a template </span>
+                            </label> -->
+                        
+                    </div>
+                </div> 
+            </div>
+            <div class="col-lg-3">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h4>Media</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-upload">
+                            <div id="image-preview-container">
+                            </div>
+                            <input class="form-control" type="file" name="images" id="image-input" accept="image/*" multiple required>
+                            <p id="file-error" style="color: red; display: none;">You can upload up to 4 images only.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+              </form>
+            </div>
+        </section> <!-- content-main end// -->
+        
+        <footer class="main-footer font-xs">
+
+        </footer>
+    </main>
+    <script src="/public/adminAssets/js/vendors/jquery-3.6.0.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/select2.min.js"></script>
+    <script src="/public/adminAssets/js/vendors/perfect-scrollbar.js"></script>
+    <script src="/public/adminAssets/js/vendors/jquery.fullscreen.min.js"></script>
+    <!-- Main Script -->
+    <script src="/public/adminAssets/js/main.js" type="text/javascript"></script>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const regularPriceInput = document.querySelector('input[name="product_price"]');
+        const offerPriceInput = document.querySelector('input[name="offer_price"]');
+        const priceError = document.getElementById("priceError");
+    
+        regularPriceInput.addEventListener('input', validateRegularPrice);
+        offerPriceInput.addEventListener('input', validateOfferPrice);
+    
+        function validateRegularPrice() {
+            const regularPrice = parseFloat(regularPriceInput.value);
+    
+            if (isNaN(regularPrice)) {
+                regularPriceInput.setCustomValidity("Regular price must be a number.");
+                priceError.textContent = "Regular price must be a valid number.";
+            } else if (regularPrice <= 0) {
+                regularPriceInput.setCustomValidity("Regular price must be greater than 0.");
+                priceError.textContent = "Regular price must be greater than 0.";
+            } else if (regularPrice > 100000) {
+                regularPriceInput.setCustomValidity("Regular price must not exceed 100,000.");
+                priceError.textContent = "Regular price must not exceed 100,000.";
+            } else {
+                regularPriceInput.setCustomValidity("");
+                priceError.textContent = "";
+            }
+        }
+    
+        function validateOfferPrice() {
+            const offerPrice = parseFloat(offerPriceInput.value);
+            const regularPrice = parseFloat(regularPriceInput.value);
+    
+            if (isNaN(offerPrice)) {
+                offerPriceInput.setCustomValidity("Offer price must be a number.");
+                priceError.textContent = "Offer price must be a valid number.";
+            } else if (offerPrice <=0) {
+                offerPriceInput.setCustomValidity("Offer price must be greater than or equal to 0.");
+                priceError.textContent = "Offer price must be greater than or equal to 0.";
+            } else if (offerPrice > 100) {
+                offerPriceInput.setCustomValidity("Offer % must be less than the 100%.");
+                priceError.textContent = "Offer % must be less than the 100%.";
+            } else {
+                offerPriceInput.setCustomValidity("");
+                priceError.textContent = "";
+            }
+        }
+    });
+    
+    </script>
+    
+    
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const productNameInput = document.querySelector('input[name="product_name"]');
+        productNameInput.addEventListener('input', validateProductName);
+    
+        function validateProductName() {
+            const productName = productNameInput.value.trim();
+    
+            if (productName === "") {
+                productNameInput.setCustomValidity("Product name cannot be blank.");
+            } else if (productName.length > 12) {
+                productNameInput.setCustomValidity("Product name must not exceed 12 characters.");
+            } else if (/\s/.test(productName)) {
+                productNameInput.setCustomValidity("Product name cannot contain white spaces.");
+            } else if (/[^A-Za-z\s]*[!@#$%^&*]{3,}[^A-Za-z\s]*/.test(productName)) {
+        productNameInput.setCustomValidity("Product name cannot contain more than 2 consecutive symbols or disallowed characters.");
+       }
+    else {
+                productNameInput.setCustomValidity(""); // No validation error
+            }
+        }
+    });
+    
+    </script>
+    
+    
+    <script>
+          document.addEventListener('DOMContentLoaded', function () {
+        const quantityInput = document.querySelector('input[name="quantity"]');
+        quantityInput.addEventListener('input', validateQuantity);
+    
+        function validateQuantity() {
+            const quantityValue = quantityInput.value.trim();
+    
+            if (quantityValue === "") {
+                quantityInput.setCustomValidity("Quantity cannot be blank.");
+            } else if (!/^\d+$/.test(quantityValue)) {
+                quantityInput.setCustomValidity("Quantity can only contain numbers.");
+            } else {
+                const quantityNumber = parseInt(quantityValue, 10);
+                if (quantityNumber === 0) {
+                    quantityInput.setCustomValidity("Quantity cannot be zero.");
+                } else if (quantityNumber > 1000) {
+                    quantityInput.setCustomValidity("Quantity cannot be greater than 1000.");
+                } else {
+                    quantityInput.setCustomValidity(""); // No validation error
+                }
+            }
+        }
+    });
+    
+    </script>
+
+<script>
+// Function to update the image previews
+function updateImagePreview() {
+    const imageInput = document.getElementById('image-input');
+    const imagePreviewContainer = document.getElementById('image-preview-container');
+    const fileError = document.getElementById('file-error');
+    const submitButton = document.getElementById('submit-button');
+
+    // Clear previous image previews
+    imagePreviewContainer.innerHTML = '';
+
+    // Check if any files were selected
+    if (imageInput.files && imageInput.files.length > 0) {
+        if (imageInput.files.length > 4) {
+            fileError.style.display = 'block'; // Show error message
+            submitButton.disabled = true; // Disable the submit button
+            return;
+        } else {
+            fileError.style.display = 'none'; // Hide error message
+            submitButton.disabled = false; // Enable the submit button
+        }
+
+        for (let i = 0; i < imageInput.files.length; i++) {
+            const reader = new FileReader();
+            const imagePreview = document.createElement('div');
+            imagePreview.className = 'image-preview';
+
+            // Create an image element for the preview
+            const previewImage = document.createElement('img');
+            previewImage.className = 'preview-image';
+            previewImage.src = '/assets/imgs/theme/upload.svg'; // Default image
+            imagePreview.appendChild(previewImage);
+
+            imagePreviewContainer.appendChild(imagePreview);
+
+            reader.onload = function (e) {
+                // Display the selected image as a preview
+                previewImage.src = e.target.result;
+            };
+
+            reader.readAsDataURL(imageInput.files[i]);
+        }
+    }
+}
+
+// Add an event listener to the file input to trigger the image preview function
+const imageInput = document.getElementById('image-input');
+imageInput.addEventListener('change', updateImagePreview);
+
+// Prevent form submission if more than 4 images are selected
+const productForm = document.getElementById('product-form');
+const submitButton = document.getElementById('submit-button');
+productForm.addEventListener('submit', function (event) {
+    if (imageInput.files.length > 4) {
+        event.preventDefault(); 
+        
+    }
+});
+
+
+</script>
+ 
+
+</html>
+

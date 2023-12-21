@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIKTIK</title>
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="/public/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="/public/css/icomoon.css">
+    <!-- Ion Icon Fonts-->
+    <link rel="stylesheet" href="/public/css/ionicons.min.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="/public/css/magnific-popup.css">
+
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="/public/css/flexslider.css">
+
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="/public/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/public/css/owl.theme.default.min.css">
+
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="/public/css/bootstrap-datepicker.css">
+    <!-- Flaticons  -->
+    <link rel="stylesheet" href="/public/fonts/flaticon/font/flaticon.css">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="/public/css/style.css">
+    <!-- Include SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Include SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+</head>
+
+<style>
+    hr {
+        border: 1px solid black; 
+        width: 100%; 
+        margin: 20px auto; 
+    }
+</style>
+
+<body>
+
+
+    <div id="page">
+        <nav class="colorlib-nav" role="navigation">
+            <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-7 col-md-9">
+                            <div id="colorlib-logo"><a href="/home">TIKTIK</a></div>
+                        </div>
+                        <div class="col-sm-5 col-md-3">
+                            <!-- <form action="#" class="search-wrap">
+                                <div class="form-group">
+                                    <input type="search" class="form-control search" placeholder="Search">
+                                    <button class="btn btn-primary submit-search text-center" type="submit"><i
+                                            class="icon-search"></i></button>
+                                </div>
+                            </form> -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-left menu-1">
+                            <ul>
+                                <li class=""><a href="/home">Home</a></li>
+                                <li class="has-dropdown">
+                                    <a href="/watches">Watches</a>
+                             
+                                </li>
+
+
+                                <!-- <li><a href="women.html">COllection</a></li> -->
+
+                                <li><a href="contact.html">Contact</a></li>
+
+
+                                <li><a href="About">About</a></li>
+
+                                <li class="cart"><a href="/wishList"><i class="iconwishlist"></i><svg
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
+                                            height="20">
+                                            <path
+                                                d="m12 20.703.343.667a.748.748 0 0 1-.686 0l-.003-.002-.007-.003-.025-.013a31.138 31.138 0 0 1-5.233-3.576C3.8 15.573 1 12.332 1 8.514v-.001C1 5.053 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262a31.148 31.148 0 0 1-5.233 3.576l-.025.013-.007.003-.002.001ZM6.736 4C4.657 4 2.5 5.88 2.5 8.514c0 3.107 2.324 5.96 4.861 8.12a29.655 29.655 0 0 0 4.566 3.175l.073.041.073-.04c.271-.153.661-.38 1.13-.674.94-.588 2.19-1.441 3.436-2.502 2.537-2.16 4.861-5.013 4.861-8.12C21.5 5.88 19.343 4 17.264 4c-2.106 0-3.801 1.389-4.553 3.643a.751.751 0 0 1-1.422 0C10.537 5.389 8.841 4 6.736 4Z">
+                                            </path>
+                                        </svg></a></li>
+
+                                <li class="wishlist"><a href="/cart"><i class="icon-shopping-cart"></i></a></li>
+
+                                <li class="user dropdown">
+                                    <a href="#" class="dropdown" data-toggle="dropdown" role="button"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                                        </svg>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/logout">Log out</a></li>
+                                        <li><a href="/userprofile">Profile</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sale bg-dark">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-sm-8 offset-sm-2 text-center">
+                            <div class="row">
+                                <div class="owl-carousel2">
+                                    <div class="item">
+                                        <div class="col">
+                                            <h3><a href="#">15% off (Almost) Everything! Use Code:summer901!</a></h3>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="col">
+                                            <h3><a href="#">Our biggest sale yet 10% off all Watches</a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col ">
+                        <p class=""><span><a href="/home">Home</a></span> / <span>cart</span> / <span
+                                class="bread">Checkout</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="colorlib-product">
+            <div class="container">
+                <div class="row row-pb-lg">
+                    <div class="col-sm-10 offset-md-1">
+                        <div class="process-wrap">
+                            <div class="process text-center active">
+                                <p><span>01</span></p>
+                                <h3>Shopping Cart</h3>
+                            </div>
+                            <div class="process text-center active">
+                                <p><span>02</span></p>
+                                <h3>Checkout</h3>
+                            </div>
+                            <div class="process text-center">
+                                <p><span>03</span></p>
+                                <h3>Order Complete</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <form method="post" class="colorlib-form">
+                            <h2>Billing Addres</h2>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group" id="addressContailner">
+                                        <label for="Address">Address</label>
+                                        <% if (userAddress && userAddress.length> 0) { %>
+                                            <% const defaultAddress=userAddress[0].addresses.find(address=>
+                                                address.isDefault === true); %>
+                                                <% if (defaultAddress) { %>
+                                                    <p><input type="radio" name="addressId"
+                                                            value="<%= defaultAddress._id %>" checked>
+                                                        <%= defaultAddress.address %>, <%= defaultAddress.town %>, <%=
+                                                                    defaultAddress.state %>
+                                                    </p>
+                                                    <p>
+                                                        <%= defaultAddress.country %>
+                                                    </p>
+                                                    <p>
+                                                        <%= defaultAddress.postalCode %>
+                                                    </p>
+                                                    <p>
+                                                        <%= defaultAddress.email %>
+                                                    </p>
+                                                    <p>
+                                                        <%= defaultAddress.phoneNumber %>
+                                                    </p>
+                                                    <% } else { %>
+                                                        <p>No default address found.</p>
+                                                        <% } %>
+                                                            <% } else { %>
+                                                                <p>No address data available.</p>
+                                                                <% } %>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class=" text-center">
+                                            <% if (userAddress && userAddress.length> 0) { %>
+                                                <% const defaultAddress=userAddress[0].addresses.find(address=>
+                                                    address.isDefault === true); %>
+                                                    <% if (defaultAddress) { %>
+                                                        <p><a type="submit" id="availableAddress" data-toggle="modal"
+                                                                data-target="#modalAddress"
+                                                                class="btn btn-flex btn-outline-dark">change
+                                                                address</a>
+                                                            <% } else { %>
+                                                                <a type="submit" id="availableAddress"
+                                                                        data-toggle="modal" data-target="#modalAddress"
+                                                                        class="btn btn-flex btn-outline-dark">Add
+                                                                        address</a>
+
+                                                                    <% } %>
+                                                                        <% } else { %>
+                                                                            <p>No address data available.</p>
+                                                                            <a type="submit" id="availableAddress"
+                                                                        data-toggle="modal" data-target="#modalAddress"
+                                                                        class="btn btn-flex btn-outline-dark">Add
+                                                                        address</a>
+                                                                            <% } %>
+                                                                            
+                                                                                <a href="/Watches"
+                                                                                    class="btn btn-flex btn-outline-dark">Continue
+                                                                                    shopping</a><a href="/cart"
+                                                                                    class="btn btn-flex btn-outline-dark">cart</a>
+                                                                </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal fade top" id="modalAddress" tabindex="-1" aria-labelledby="myModalLabel"
+                        aria-hidden="true" data-bs-backdrop="true">
+                        <div class="modal-dialog modal-frame modal-top modal-notify modal-success" role="document">
+                            <div class="modal-content">
+                                <div class="d-flex justify-content-center">
+                                    <h3>Select an Address</h3>
+                                </div>
+                                <div class="modal-body">
+                                    <% userAddress.forEach(function(user, index) { %>
+                                        <% if (user.addresses && Array.isArray(user.addresses) && user.addresses.length>
+                                            0) { %>
+                                            <% user.addresses.forEach(function(address, index) { %>
+                                                <div class="row justify-content-start align-items-center m-1">
+                                                    <div id="errormessage" class="text-danger"></div>
+                                                    <div class="address-info">
+                                                        <input type="radio" class="addressRadio"
+                                                            value="<%= address._id %>" name="selectedAddress">
+                                                        <p><strong>Address:</strong>
+                                                            <%= address.address %>, <%= address.town %>, <%=
+                                                                        address.state %>
+                                                        </p>
+                                                        <p><strong></strong>
+                                                            <%= address.country %>
+                                                        </p>
+                                                        <p><strong></strong>
+                                                            <%= address.postalcode %>
+                                                        </p>
+                                                        <p><strong></strong>
+                                                            <%= address.email %>
+                                                        </p>
+                                                        <p><strong></strong>
+                                                            <%= address.phoneNumber %>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <% }); %>
+                                                    <% } else { %>
+                                                        <p>No addresses available.</p>
+                                                        <% } %>
+                                                            <% }); %>
+
+                                                                <div
+                                                                    class="close-container d-flex justify-content-end mt-2">
+                                                                   
+                                                                                <button type="button"
+                                                                                    class="btn btn-outline-success"
+                                                                                    onclick="applyAddress()">set as
+                                                                                    default</button>
+                                                                               
+                                                                                        <button type="button"
+                                                                                            class="btn btn-outline-success"
+                                                                                            onclick="addAddress()">Add address</button>
+                                                                                       
+                                                                                                <button type="button"
+                                                                                                    class="btn btn-outline-success"
+                                                                                                    data-dismiss="modal">No,
+                                                                                                    thanks</button>
+                                                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New modal for address adding form -->
+                    <div class="modal fade" id="modalAddAddress" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Add your address adding form content here -->
+                                <!-- For example, you can include form elements like text inputs, etc. -->
+                                <div class="modal-body">
+                                    <form id="addAddressForm" >
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="address">Address</label>
+                                                    <input type="text" id="address" name="address" class="form-control"
+                                                        placeholder="Enter Your Address" required>
+                                                    <span id="addressError" class="error-message text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="town">Town/City</label>
+                                                    <input type="text" id="town" name="town" class="form-control"
+                                                        placeholder="Town or City" required>
+                                                    <span id="townError" class="error-message text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="country">Country</label>
+                                                    <input type="text" id="country" name="country" class="form-control"
+                                                        placeholder="Country" required>
+                                                    <span id="countryError" class="error-message text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="state">State/Province</label>
+                                                    <input type="text" id="state" name="state" class="form-control"
+                                                        placeholder="State" required>
+                                                    <span id="stateError" class="error-message text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="postalCode">Postal Code</label>
+                                                    <input type="text" id="postalCode" name="postalCode"
+                                                        class="form-control" placeholder="Postal Code" required>
+                                                    <span id="postalCodeError" class="error-message text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="email">E-mail Address</label>
+                                                    <input type="text" id="email" name="email" class="form-control"
+                                                        placeholder="Email" required>
+                                                    <span id="emailError" class="error-message text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="phone">Phone Number</label>
+                                                    <input type="text" id="phone" name="phoneNumber"
+                                                        class="form-control" placeholder="Phone Number" required>
+                                                    <span id="phoneError" class="error-message text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <button type="button" id="appplyButton"  onclick="validateForm()" class="btn btn-primary">
+                                                    Submit
+                                                </button>
+                                            </div>
+                                        </div>
+                                     <div id="formSuccess" class="text-center text-success"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="cart-detail">
+                                    <h2>Cart Total</h2>
+                                    <ul>
+                                        <li>
+                                            <ul>
+                                                <% cart.products.forEach(product=> { %>
+                                                    <li><span>
+                                                            <%= product.quantity %> x <%= product.product.product_name
+                                                                    %>
+                                                        </span> <span>₹<%= (product.product.product_sales_price *
+                                                                product.quantity).toFixed(2) %></span></li>
+                                                    <% }); %>
+                                            </ul>
+                                        </li>
+                                        <% if (cart) { %>
+                                            <li><span>Subtotal</span> <span>₹<%= cart.cartSubtotal.toFixed(2) %></span>
+                                            </li>
+
+                                            <li><span>Delivery</span> <span> ₹30.00</span></li>
+                                            <li><span>Discount</span> <span id="discount">₹
+                                                    <%=cart.couponDiscount.toFixed(2) %>
+                                                </span></li>
+                                            <% } %>
+                                                <li><span>Order Total</span>₹<%=
+                                                        (cart.cartSubtotal+30-cart.couponDiscount).toFixed(2) %>
+                                                        <span></span>
+                                                </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="w-100"></div>
+
+
+                            <div class="col-md-12">
+                                <div id="errormes" class="text-danger text-center"></div>
+                                <div class="cart-detail">
+                                    <h2>Payment Method</h2>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="radio">
+                                                <input form="paymentForm" type="radio" name="paymentMethod"
+                                                    id="f-option5" value="cod">
+                                                <label class="form-check-label" for="f-option5">Cash on Delivery</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="radio">
+                                                <input form="paymentForm" type="radio" name="paymentMethod"
+                                                    id="f-option6" value="online">
+                                                <label class="form-check-label" for="f-option6">Online Payment</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="radio">
+                                                <input form="paymentForm" type="radio" name="paymentMethod"
+                                                    id="f-option6" value="wallet">
+                                                <label class="form-check-label" for="f-option6">wallet</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="checkbox">
+                                       <label><input type="checkbox" value=""> I have read and accept the terms and conditions</label>
+                                    </div>
+                                </div>
+                            </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-primary"
+                                    onclick="makePurchase('<%= (cart.cartSubtotal+30-cart.couponDiscount).toFixed(2) %>')">Place
+                                    an
+                                    order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <footer id="colorlib-footer" role="contentinfo">
+            <div class="container">
+                <div class="row row-pb-md">
+                    <div class="col footer-col colorlib-widget">
+                        <h4>About TIKTIK</h4>
+                        <p>YOU CAN BUY TIME</p>
+                        <p>
+                        <ul class="colorlib-social-icons">
+                            <li><a href="#"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                            <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="col footer-col colorlib-widget">
+                        <h4>Customer Care</h4>
+                        <p>
+                        <ul class="colorlib-footer-links">
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Returns/Exchange</a></li>
+                            <li><a href="#">Gift Voucher</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">Special</a></li>
+                            <li><a href="#">Customer Services</a></li>
+                            <li><a href="#">Site maps</a></li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="col footer-col colorlib-widget">
+                        <h4>Information</h4>
+                        <p>
+                        <ul class="colorlib-footer-links">
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Delivery Information</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Support</a></li>
+                            <li><a href="#">Order Tracking</a></li>
+                        </ul>
+                        </p>
+                    </div>
+
+                    <div class="col footer-col">
+                        <h4>News</h4>
+                        <ul class="colorlib-footer-links">
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Exhibitions</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col footer-col">
+                        <h4>Contact Information</h4>
+                        <ul class="colorlib-footer-links">
+                            <li>LuLu International Shopping Malls Pvt. Ltd, <br>34/1000, N.H 47,Edapally, Kochi - 682
+                                024, Kerala</li>
+                            <li><a href="tel://1234567920">+ 91 8590228054</a></li>
+                            <li><a href="mailto:info@yoursite.com">tiktik@tiktik.com</a></li>
+                            <li><a href="#">yoursite.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copy">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <p>
+                            <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+    <!-- jQuery -->
+    <script src="/public/js/jquery.min.js"></script>
+    <!-- popper -->
+    <script src="/public/js/popper.min.js"></script>
+    <!-- bootstrap 4.1 -->
+    <script src="/public/js/bootstrap.min.js"></script>
+    <!-- jQuery easing -->
+    <script src="/public/js/jquery.easing.1.3.js"></script>
+    <!-- Waypoints -->
+    <script src="/public/js/jquery.waypoints.min.js"></script>
+    <!-- Flexslider -->
+    <script src="/public/js/jquery.flexslider-min.js"></script>
+    <!-- Owl carousel -->
+    <script src="/public/js/owl.carousel.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="/public/js/jquery.magnific-popup.min.js"></script>
+    <script src="/public/js/magnific-popup-options.js"></script>
+    <!-- Date Picker -->
+    <script src="/public/js/bootstrap-datepicker.js"></script>
+    <!-- Stellar Parallax -->
+    <script src="/public/js/jquery.stellar.min.js"></script>
+    <!-- Main -->
+    <script src="/public/js/main.js"></script>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        function addAddress() {
+            // Remove current modal content
+            $('#modalAddress .modal-body').empty();
+
+            // Append the new address form content
+            $('#modalAddress .modal-body').append($('#modalAddAddress .modal-body').html());
+
+            // Show the new modal
+            $('#modalAddress').modal('show');
+        }
+    </script>
+
+
+    <script>
+
+
+        function applyAddress() {
+            let addressid; // Declare the variable outside the loop
+            const checkboxes = document.querySelectorAll('.addressRadio');
+            const errormessage = document.getElementById('errormessage')
+
+            checkboxes.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    addressid = checkbox.value;
+                    console.log(addressid, "addressid");
+                }
+            });
+
+            if (addressid) {
+                $.ajax({
+                    url: '/checkoutAddress',
+                    type: 'POST',
+                    data: {
+                        addressId: addressid
+                    },
+                    success: function (response) {
+                        swal.fire({
+                            icon: "success",
+                            title: response.message,
+                            showConfirmButton: false,
+                            timer: 2000
+                        })
+                        $('#modalAddress').modal('hide');
+                        console.log(response.address, "dfdsf");
+                        changeAddress(response.address)
+
+                    },
+                    error: function (error) {
+                        console.error("Error:", error);
+                    }
+                });
+            } else {
+                console.error("No address selected");
+                errormessage.innerText = "No address selected"
+                setTimeout(() => {
+                    errormessage.innerText = ''
+                }, 2000)
+            }
+        }
+
+
+        function changeAddress(address) {
+            console.log(typeof address, "fdsfsdf");
+            const addressContainer = document.getElementById('addressContailner');
+            console.log(addressContainer, "jgjhgjhghghgh");
+
+            addressContainer.innerHTML = '';
+
+            if (address && address.addresses && Array.isArray(address.addresses)) {
+                // Find the default address
+                const defaultAddress = address.addresses.find(addressItem => addressItem.isDefault === true);
+
+                if (defaultAddress) {
+                    const isDefault = defaultAddress.isDefault === true;
+
+                    const addressHtml = `
+                <label for="addressId">Address</label>
+                <div class="row justify-content-start align-items-center  m-1">
+                    <div class="address-info">
+                        <input type="radio" id="addressId" class="addressRadio" value="${defaultAddress._id}" name="selectedAddress" ${isDefault ? 'checked' : ''}>
+                        <span class="slider round"></span>
+                        <p><strong>Address:</strong> ${defaultAddress.address}, ${defaultAddress.town}, ${defaultAddress.state}</p>
+                        <p><strong>Country:</strong> ${defaultAddress.country}</p>
+                        <p><strong>Postal Code:</strong> ${defaultAddress.postalCode}</p>
+                        <p><strong>Email:</strong> ${defaultAddress.email}</p>
+                        <p><strong>Phone Number:</strong> ${defaultAddress.phoneNumber}</p>
+                    </div>
+                </div>
+            `;
+
+                    console.log(addressHtml);
+                    addressContainer.insertAdjacentHTML('beforeend', addressHtml);
+                }
+            }
+        }
+
+    </script>
+
+
+    <script>
+        function makePurchase(grandTotal) {
+            let addressId = $("input[name='addressId']:checked").val();
+            let selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+            const errormessage = document.querySelector('#errormes');
+
+
+            if (!selectedPaymentMethod) {
+                errormessage.textContent = 'select a payment method'
+            } else {
+                errormessage.textContent = ''
+                let payment = selectedPaymentMethod.value;
+                if (payment === 'cod') {
+                    // If COD is selected, proceed with the order
+                    placeCODOrder(grandTotal, addressId, payment);
+                } else if (payment === 'online') {
+                    placeOnlineOrder(grandTotal, addressId, payment);
+                } else if (payment === 'wallet') {
+                    placeWalletOrder(grandTotal, addressId, payment)
+                }
+                else {
+                    console.log("Invalid payment method selected.");
+                }
+            }
+        }
+        function placeCODOrder(grandTotal, addressId, payment) {
+            $.ajax({
+                url: '/makeorder',
+                method: 'POST',
+                data: {
+                    addressId: addressId,
+                    payment_option: payment, // Set payment method to COD
+                    GrandTotal: grandTotal
+                },
+                success: function (response) {
+                    console.log('Received response:', response);
+                    location.href = '/orderComplete';
+                },
+                error: function (err) {
+                    if (err.responseJSON && err.responseJSON.success === false && err.responseJSON.message) {
+                        // Product is out of stock, display a custom message using Swal
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'error',
+                            text: err.responseJSON.message,
+                            showConfirmButton: true,
+                        });
+                    } else {
+                        // Handle other errors as needed
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'An error occurred while placing your order. Please try again later.',
+                            showConfirmButton: true,
+                        });
+
+                    }
+                }
+            });
+        }
+
+        function placeWalletOrder(grandTotal, addressId, payment) {
+            console.log("grandTotal", grandTotal);
+            console.log("addressId", addressId);
+            console.log("payment", payment);
+            $.ajax({
+                url: '/makewalletOrder',
+                method: 'POST',
+                data: {
+                    addressId: addressId,
+                    payment_option: payment, // Set payment method to COD
+                    GrandTotal: grandTotal
+                }, success: function (response) {
+                    console.log(response,"response");
+                    if (response.success) {
+                        console.log('Received response:', response);
+                    location.href = '/orderComplete';
+                    }else{
+                        swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: response.msg,
+                            text:response.message,
+                            showConfirmButton: false,
+                        })
+                    }
+                   
+                },
+                error: function (err) {
+                    if (err.responseJSON && err.responseJSON.success === false && err.responseJSON.message) {
+                        // Product is out of stock, display a custom message using Swal
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'error',
+                            text: err.responseJSON.message,
+                            showConfirmButton: true,
+                        });
+                    } else {
+                        // Handle other errors as needed
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'An error occurred while placing your order. Please try again later.',
+                            showConfirmButton: true,
+                        });
+
+                    }
+                }
+            });
+        }
+
+        function placeOnlineOrder(grandTotal, addressId, payment) {
+            $.ajax({
+                url: '/makeOnlineOrder',
+                method: 'POST',
+                data: {
+                    addressId: addressId,
+                    payment_option: payment, 
+                    GrandTotal: grandTotal
+                },
+
+                success: function (res) {
+                    if (res.success) {
+                        const options = {
+                            "key": "" + res.key_id + "",
+                            "amount": "" + res.amount + "",
+                            "currency": "INR",
+                            "name": "" + res.product_name + "",
+                            "image": "https://dummyimage.com/600x400/000/fff",
+                            "order_id": "" + res.order_id + "", 
+                            handler: function (response) {
+                                verifyPayment(response, status);
+                            },
+                            "prefill": {
+                                "name": "" + res.name + "",
+                                "phone": "" + res.contact + "",
+                                "email": "" + res.email + ""
+                            },
+                            "notes": {
+                                "description": "" + res.description + ""
+                            },
+                            "theme": {
+                                "color": "#2300a3"
+                            }
+                        };
+                        const rzpy = new Razorpay(options)
+                        rzpy.open();
+                        rzpy.on('payment.failed', function (response) {
+                            swal.fire({
+                                position: "center",
+                                icon: "error",
+                                title: "payment canceled",
+                                showConfirmButton: false
+                            })
+                            // location.href = '/cart'; 
+
+                        });
+                    } else {
+                        // Display an error message when some products are out of stock
+                        swal.fire({
+                            position: "center",
+                            icon: "error",
+                            title: "Error",
+                            text: res.msg,
+                            showConfirmButton: false
+                        });
+                    }
+                },
+                error: function (xhr, status, error) {
+                    // Handle AJAX error if needed
+                    console.log(error);
+                }
+            });
+        }
+
+        function verifyPayment(order_id, grandTotal) {
+            $.ajax({
+                url: "/verifyPayment",
+                method: "POST",
+                data: {
+                    orderid: order_id,
+                },
+                success: function (response) {
+                    if (response.status) {
+                        // Payment was successful, redirect to the order complete page
+                        location.href = '/orderComplete';
+                    } else {
+                        // Payment failed
+                        console.log("Payment failed:", response.errMsg);
+                    }
+                },
+            })
+        }
+
+    </script>
+
+ 
+<!-- form validation -->
+<script>
+    function validateForm() {
+        let valid = true;
+      const addressInput = document.getElementById('address');
+      const townInput = document.getElementById('town');
+      const stateInput = document.getElementById('state');
+      const countryInput = document.getElementById('country');
+      const postalCodeInput = document.getElementById('postalCode');
+      const emailInput = document.getElementById('email');
+      const phoneInput = document.getElementById('phone');
+      const successMessage = document.getElementById('formSuccess')
+      
+      
+
+      // Helper function to display error message
+      function showError(input, message) {
+        const errorElement = document.getElementById(input.id + 'Error');
+        errorElement.textContent = message;
+      }
+
+      // Helper function to clear error messages
+      function clearErrors() {
+        const inputs = [
+          addressInput,
+          townInput,
+          stateInput,
+          countryInput,
+          postalCodeInput,
+          emailInput,
+          phoneInput
+        ];
+        inputs.forEach((input) => {
+          const errorElement = document.getElementById(input.id + 'Error');
+          errorElement.textContent = '';
+        });
+      }
+
+      // Clear previous error messages
+      clearErrors();
+
+      // Validation for empty and whitespace-only inputs
+      if (addressInput.value.trim() === '') {
+        showError(addressInput, 'Address is required.');
+        valid = false;
+      }
+
+      if (addressInput.value.length < 10  && addressInput.value.length >  20) {
+        showError(addressInput, 'Address must be at least 10 characters long.');
+        valid = false;
+      }
+
+      if (/\s{4,}/.test(addressInput.value)) {
+        showError(addressInput, 'Address cannot have more than 3 consecutive whitespace characters.');
+        valid = false;
+      }
+
+      if (/[%$#&.^]{4,}/.test(addressInput.value)) {
+        showError(addressInput, 'Address cannot have more than 3 consecutive symbols.');
+        valid = false;
+      }
+
+      if (townInput.value.trim() === '') {
+        showError(townInput, '*required');
+        valid = false;
+      }
+      if (/\s/.test(townInput.value)) {
+        showError(townInput, ' cannot contain white spaces.');
+        valid = false;
+      }
+      if (/[^a-zA-Z0-9]/.test(townInput.value)) {
+        showError(townInput, 'Town name cannot contain symbols or white spaces.');
+        valid = false;
+      }
+
+      if (countryInput.value.trim() === '') {
+        showError(countryInput, '*required');
+        valid = false;
+      }
+
+      if (/\s/.test(countryInput.value)) {
+        showError(countryInput, 'Country cannot contain white spaces.');
+        valid = false;
+      }
+      if (/[^a-zA-Z0-9]/.test(countryInput.value)) {
+        showError(countryInput, 'cannot contain symbols or white spaces.');
+        valid = false;
+      }
+
+      if (stateInput.value.trim() === '') {
+        showError(stateInput, '*required');
+        valid = false;
+      }
+      if (/\s/.test(stateInput.value)) {
+        showError(stateInput, ' cannot contain white spaces.');
+        valid = false;
+      }
+      if (/[^a-zA-Z0-9]/.test(stateInput.value)) {
+        showError(stateInput, ' cannot contain symbols or white spaces.');
+        valid = false;
+      }
+
+
+
+      if (!/^\d{6,8}$/.test(postalCodeInput.value)) {
+        showError(postalCodeInput, 'Postal Code must contain 6 to 8 digits, and only numbers are allowed.');
+        valid = false;
+      }
+
+      if (!/^[A-Za-z0-9]{5,}@/.test(emailInput.value)) {
+        showError(emailInput, 'Enter a valid email address with at least 5 letters or numbers before @ and no white spaces.');
+        valid = false;
+      }
+
+      if (phoneInput.value.replace(/\s/g, '').split('').filter((v, i, a) => a.indexOf(v) === i).length < 5) {
+        showError(phoneInput, 'Phone number must have at least 5 different numbers and contain no white spaces.');
+        valid = false;
+      }
+      if (!/^\d{10}$/.test(phoneInput.value)) {
+        showError(phoneInput, 'Phone number must contain exactly 10 digits and no other characters.');
+        valid = false;
+      }
+      if (valid ){
+        console.log("hiiii");   
+            $.ajax({
+                url: '/saveAddress',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                address: addressInput.value,
+                town: townInput.value,
+                state: stateInput.value,
+                country: countryInput.value,
+                postalCode: postalCodeInput.value,
+                email: emailInput.value,
+                phone: phoneInput.value,
+                }),
+                success: function (data) {   
+                    successMessage.innerText = data.message
+                    document.getElementById('appplyButton').style.display = 'none'
+                    setTimeout(()=>{
+                        successMessage.innerText = ''
+                    },2000)
+                    
+                },
+                error: function (xhr, status, error) {
+                    // Request failed, handle the error
+                    console.error('Error:', status, error);
+                }
+            });
+          
+        }
+        
+    }
+
+   
+  </script>
+
+</body>
+
+</html>

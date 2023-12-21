@@ -1,0 +1,385 @@
+
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TIKTIK</title>
+            <!-- Animate.css -->
+            <link rel="stylesheet" href="/public/css/animate.css">
+            <!-- Icomoon Icon Fonts-->
+            <link rel="stylesheet" href="/public/css/icomoon.css">
+            <!-- Ion Icon Fonts-->
+            <link rel="stylesheet" href="/public/css/ionicons.min.css">
+            <!-- Bootstrap  -->
+            <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+        
+            <!-- Magnific Popup -->
+            <link rel="stylesheet" href="/public/css/magnific-popup.css">
+        
+            <!-- Flexslider  -->
+            <link rel="stylesheet" href="/public/css/flexslider.css">
+        
+            <!-- Owl Carousel -->
+            <link rel="stylesheet" href="/public/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="/public/css/owl.theme.default.min.css">
+        
+            <!-- Date Picker -->
+            <link rel="stylesheet" href="/public/css/bootstrap-datepicker.css">
+            <!-- Flaticons  -->
+            <link rel="stylesheet" href="/public/fonts/flaticon/font/flaticon.css">
+        
+            <!-- Theme style  -->
+            <link rel="stylesheet" href="/public/css/style.css">
+            <link rel="stylesheet" href="/public/loginCss/main.css" />
+    </head>
+    <body>
+        
+    
+    <div id="page">
+        <nav class="colorlib-nav " >
+            <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-7 col-md-9">
+                            <div id="colorlib-logo"><a href="home">TIKTIK</a></div>
+                        </div>
+                        <div class="col-sm-5 col-md-3">
+                           <form action="#" class="search-wrap">
+                                <div class="form-group">
+                                    <input type="search" class="form-control search" placeholder="Search">
+                                    <button class="btn btn-primary submit-search text-center" type="submit"><i class="icon-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-left menu-1">
+                            <ul>
+                                <li class="active"><a href="/home">Home</a></li>
+                                <li class="has-dropdown">
+                                    <a href="/watches">Watches</a>
+                               
+                                </li>
+    
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="About">About</a></li>
+                                <% if(typeof user !== 'undefined' ) {%>
+                                    <li class="cart"><a href="/wishList"><i class="iconwishlist"></i><svg
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
+                                        height="20">
+                                        <path
+                                            d="m12 20.703.343.667a.748.748 0 0 1-.686 0l-.003-.002-.007-.003-.025-.013a31.138 31.138 0 0 1-5.233-3.576C3.8 15.573 1 12.332 1 8.514v-.001C1 5.053 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262a31.148 31.148 0 0 1-5.233 3.576l-.025.013-.007.003-.002.001ZM6.736 4C4.657 4 2.5 5.88 2.5 8.514c0 3.107 2.324 5.96 4.861 8.12a29.655 29.655 0 0 0 4.566 3.175l.073.041.073-.04c.271-.153.661-.38 1.13-.674.94-.588 2.19-1.441 3.436-2.502 2.537-2.16 4.861-5.013 4.861-8.12C21.5 5.88 19.343 4 17.264 4c-2.106 0-3.801 1.389-4.553 3.643a.751.751 0 0 1-1.422 0C10.537 5.389 8.841 4 6.736 4Z">
+                                        </path>
+                                    </svg></a></li>
+
+                            <li class="wishlist"><a href="/cart"><i class="icon-shopping-cart" ></i></a></li>
+
+                              <li class="user dropdown">
+                                <a href="#" class="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                                    </svg>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">    
+                                        <li><a href="/logout">Log out</a></li> 
+                                        <li><a href="/userprofile">Profile</a></li>
+                                        <!-- Display "Log out" if user is logged in -->   
+                                        <!-- <li><a href="/login">Log in</a></li> Display "Log in" if user is not logged in -->                         
+                                </ul>
+                            </li>
+                                                          
+                                    <%}else{%>
+                                    <li class="user dropdown">
+                                        <a href="#" class="dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                                            </svg>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">    
+                                            <li><a href="/login">Log in</a></li>                     
+                                        </ul>
+                                    </li>  
+                                  <% } %>                                                                 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        <div class="sale bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2 text-center">
+                    <div class="row">
+                        <div class="owl-carousel2">
+                    		<div class="item">
+                                <div class="col">
+                                    <h3><a href="#">15% off (Almost) Everything! Use Code:summer901!</a></h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col">
+                                    <h3><a href="#">Our biggest sale yet 10% off all Watches</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </nav>
+    
+    <aside id="colorlib-hero">
+        <div class="flexslider">
+            <ul class="slides">
+                <li style="background-image: url(/public/Images/userImages/ALL.webp);">
+                    <div class="overlay"></div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6 offset-sm-3 text-center slider-text">
+                                <div class="slider-text-inner">
+                                    <div class="desc">
+                                        <!-- <h1 class="head-1">Explore</h1> -->
+                                        <!-- <h2 class="head-3"> the world of </h2>
+                                        <h2 class="head-3">TIKTIK</h2> -->
+                                        <p class="category"><span><h1 class="head-1">EXPLORE THE WORLD OF TIKTIK</h1></span></p>
+                                        <p><a href="/watches"  class="btn btn-primary">Shop Collection</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <% banner.forEach(banners => { %>
+               <li style="background-image: url('/public/userImages/<%= banners.bannerImage %>');">
+                   <div class="overlay"></div>
+                   <div class="container-fluid">
+                       <div class="row">
+                           <div class="col-sm-6 offset-sm-3 text-center slider-text">
+                               <div class="slider-text-inner">
+                                   <div class="desc">
+                                       <h1 class="head-1"><%= banners.titleOne %></h1>
+                                       <h2 class="head-3"><%= banners.titleTwo %></h2>
+                                       <h4 class="head-3 " style="color: #fff;"><%= banners.titleThree %></h4>
+                                       <p><a href="/watches" class="btn btn-primary">Shop Collection</a></p>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </li>
+               <% }); %>
+              </ul>
+          </div>
+    </aside>
+
+
+
+    <div class="colorlib-product">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <div class="featured">
+                        <a href="#" class="featured-img" style="background-image: url(/public/Images/userImages/1.jpg);"></a>
+                        <div class="desc">
+                            <h2><a href="#"></a></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <div class="featured">
+                        <a href="#" class="featured-img" style="background-image: url(/public/Images/userImages/2.png);"></a>
+                        <div class="desc">
+                            <h2><a href="#"></a></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- /*  products*/ -->
+    
+		<!-- <div class="colorlib-product">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
+						<h2>Best Sellers</h2>
+					</div>
+				</div>
+				<div class="row row-pb-md">
+                    
+					<div class="col-lg-3 mb-4 text-center">
+						<div class="product-entry border">
+							<a href="#" class="prod-img">
+								<img src="images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							</a>
+							<div class="desc">
+								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
+								<span class="price">$139.00</span>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div> -->
+        <!-- /*  products   end*/ -->
+
+	<div class="colorlib-partner bg-light">
+		<div class="container  ">
+			<div class="row del align-items-stretch">
+				<div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-0">
+					<div class="feature h-100 ">
+						<div class="icon mb-4 ">
+							<svg width="2rem" height="2rem" viewBox="0 0 16 16" class="bi bi-truck" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5v7h-1v-7a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5v1A1.5 1.5 0 0 1 0 10.5v-7zM4.5 11h6v1h-6v-1z"/>
+								<path fill-rule="evenodd" d="M11 5h2.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5h-1v-1h1a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4.5h-1V5zm-8 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+								<path fill-rule="evenodd" d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+							</svg>
+						</div>
+						<h3>Worldwide Delivery</h3>
+						<p>Far far away, behind the word mountains, far from the countries.</p>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-0">
+					<div class="feature h-100">
+						<div class="icon mb-4">
+							<svg width="2rem" height="2rem" viewBox="0 0 16 16" class="bi bi-shield-lock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M5.443 1.991a60.17 60.17 0 0 0-2.725.802.454.454 0 0 0-.315.366C1.87 7.056 3.1 9.9 4.567 11.773c.736.94 1.533 1.636 2.197 2.093.333.228.626.394.857.5.116.053.21.089.282.11A.73.73 0 0 0 8 14.5c.007-.001.038-.005.097-.023.072-.022.166-.058.282-.111.23-.106.525-.272.857-.5a10.197 10.197 0 0 0 2.197-2.093C12.9 9.9 14.13 7.056 13.597 3.159a.454.454 0 0 0-.315-.366c-.626-.2-1.682-.526-2.725-.802C9.491 1.71 8.51 1.5 8 1.5c-.51 0-1.49.21-2.557.491zm-.256-.966C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 0 1 2.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 0 1-2.418 2.3 6.942 6.942 0 0 1-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 0 1-1.007-.586 11.192 11.192 0 0 1-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 0 1 2.415 1.84a61.11 61.11 0 0 1 2.772-.815z"/>
+								<path d="M9.5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+								<path d="M7.411 8.034a.5.5 0 0 1 .493-.417h.156a.5.5 0 0 1 .492.414l.347 2a.5.5 0 0 1-.493.585h-.835a.5.5 0 0 1-.493-.582l.333-2z"/>
+							</svg>
+						</div>
+						<h3>Secure Payments</h3>
+						<p>Far far away, behind the word mountains, far from the countries.</p>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 col-md-4 mb-3 mb-md-0">
+					<div class="feature h-100">
+						<div class="icon mb-4">
+							<svg width="2rem" height="2rem" viewBox="0 0 16 16" class="bi bi-arrow-counterclockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M12.83 6.706a5 5 0 0 0-7.103-3.16.5.5 0 1 1-.454-.892A6 6 0 1 1 2.545 5.5a.5.5 0 1 1 .91.417 5 5 0 1 0 9.375.789z"/>
+								<path fill-rule="evenodd" d="M7.854.146a.5.5 0 0 0-.708 0l-2.5 2.5a.5.5 0 0 0 0 .708l2.5 2.5a.5.5 0 1 0 .708-.708L5.707 3 7.854.854a.5.5 0 0 0 0-.708z"/>
+							</svg>
+						</div>
+						<h3>Simple Returns</h3>
+						<p>Far far away, behind the word mountains, far from the countries.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+	
+
+
+        
+    <footer id="colorlib-footer"  role="contentinfo">
+        <div class="container">
+            <div class="row row-pb-md">
+                <div class="col footer-col colorlib-widget footer-links">
+                    <h4>About TIKTIK</h4>
+                    <p>YOU CAN BUY TIME</p>
+                    <p>
+                        <ul class="colorlib-social-icons footer-links">
+                            <li><a href="#"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                            <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="col footer-col colorlib-widget">
+                    <h4>Customer Care</h4>
+                    <p>
+                        <ul class="colorlib-footer-links">
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Returns/Exchange</a></li>
+                            <li><a href="#">Gift Voucher</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">Special</a></li>
+                            <li><a href="#">Customer Services</a></li>
+                            <li><a href="#">Site maps</a></li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="col footer-col colorlib-widget">
+                    <h4>Information</h4>
+                    <p>
+                        <ul class="colorlib-footer-links">
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Delivery Information</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Support</a></li>
+                            <li><a href="#">Order Tracking</a></li>
+                        </ul>
+                    </p>
+                </div>
+    
+                <div class="col footer-col colorlib-widget">
+                    <h4>News</h4>
+                    <ul class="colorlib-footer-links">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Exhibitions</a></li>
+                    </ul>
+                </div>
+    
+                <div class="col footer-col colorlib-widget">
+                    <h4>Contact Information</h4>
+                    <ul class="colorlib-footer-links">
+                        <li>LuLu International Shopping Malls Pvt. Ltd, <br>34/1000, N.H 47,Edapally, Kochi - 682 024, Kerala</li>
+                        <li><a href="tel://1234567920">+ 91 8590228054</a></li>
+                        <li><a href="mailto:info@yoursite.com">tiktik@tiktik.com</a></li>
+                        <li><a href="#">yoursite.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copy">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>
+                        <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+    
+    
+    
+    <!-- jQuery -->
+    <script src="/public/js/jquery.min.js"></script>
+    <!-- popper -->
+    <script src="/public/js/popper.min.js"></script>
+    <!-- bootstrap 4.1 -->
+    <script src="/public/js/bootstrap.min.js"></script>
+    <!-- jQuery easing -->
+    <script src="/public/js/jquery.easing.1.3.js"></script>
+    <!-- Waypoints -->
+    <script src="/public/js/jquery.waypoints.min.js"></script>
+    <!-- Flexslider -->
+    <script src="/public/js/jquery.flexslider-min.js"></script>
+    <!-- Owl carousel -->
+    <script src="/public/js/owl.carousel.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="/public/js/jquery.magnific-popup.min.js"></script>
+    <script src="/public/js/magnific-popup-options.js"></script>
+    <!-- Date Picker -->
+    <script src="/public/js/bootstrap-datepicker.js"></script>
+    <!-- Stellar Parallax -->
+    <script src="/public/js/jquery.stellar.min.js"></script>
+    <!-- Main -->
+    <script src="/public/js/main.js"></script>
+    
+    
+    </body>
+    </html>

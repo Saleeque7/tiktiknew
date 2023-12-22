@@ -17,9 +17,8 @@ require("dotenv").config();
 const { RAZORPAY_ID_KEY, RAZORPAY_SECRET_KEY } = process.env;
 
 const razorpayInstance = new Razorpay({
-    key_id: "rzp_test_PTHNYUoz90M68K",
-    key_secret: "WddAOWAHJzBQvRvnqHRh8JCN"
-   
+    key_id: RAZORPAY_ID_KEY,
+    key_secret: RAZORPAY_SECRET_KEY
 });
 
 
@@ -183,7 +182,7 @@ const makeOnlineOrder = async (req, res) => {
         msg: 'Order Created',
         order_id: razorpayOrder.id,
         amount: GrandTotal * 100,
-        key_id: "rzp_test_PTHNYUoz90M68K",
+        key_id: RAZORPAY_ID_KEY,
         product_name: 'watches',
         name: user.name,
         phone: user.mobile,
@@ -574,7 +573,7 @@ if(razorpayOrder){
     msg: 'razorpay Created',
     amount: amount * 100,
     order_id: razorpayOrder.id,
-    key_id: "rzp_test_PTHNYUoz90M68K",
+    key_id: RAZORPAY_ID_KEY,
     name: user.name,
     phone: user.mobile,
     email: user.email,

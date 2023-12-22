@@ -12,7 +12,7 @@ const easyinvoice = require("easyinvoice");
 const fs = require("fs");
 const { Readable } = require('stream');
 const CryptoJS = require('crypto-js');
-
+require("dotenv").config();
 
 const { RAZORPAY_ID_KEY, RAZORPAY_SECRET_KEY } = process.env;
 

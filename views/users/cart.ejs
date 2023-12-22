@@ -714,7 +714,7 @@ navigator.clipboard.writeText(copyText.value)
 					const total = (parseFloat(subtotal-discount) + delivery).toFixed(2); // Convert subtotal to a number
 
 					$('#cartSubtotalValue').text(`₹${subtotal}`);
-					$('#discount').text(`₹${discount}`);
+					$('#discount').html(`<span>Discount:</span><span id="discount">₹${discount}</span>`);
 					$('.grand-total').text(`₹${total}`);
 				}
 

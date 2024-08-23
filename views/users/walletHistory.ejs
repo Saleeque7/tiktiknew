@@ -426,7 +426,7 @@
                 success: function (response) {
                     if (response.status) {
                         // Payment was successful, redirect to the order complete page
-                        // window.location.reload();
+                        window.location.reload();
                         
                         successMessage.innerHTML = "Amount added successfully....!"
                         document.getElementById('addcash').style.display = 'none'
